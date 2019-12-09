@@ -5,19 +5,134 @@
   <meta charset="utf-8" />
   <title>Ionic App</title>
 
-  <base href="/" />
+  <base href="./" />
 
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
-
+  <!--阿里图标-->
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_1367102_2raqg9nd2ap.css"></link>
+  <script src="https://at.alicdn.com/t/font_1367102_2raqg9nd2ap.js"></script>
+  <!--百度地图-->
+  <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6VArBpbbbMjBVP22TflHkpSq"></script>-->
+  <!--<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>-->
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-</head>
 
+    <!-- rem.js required -->
+    <script src="assets/rem.js"></script>
+    <!-- 百度地图定位1 -->
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/components?ak=h7UtOmcSoca0dVwSKgP57GjGpfdhhF4q"></script>-->
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=h7UtOmcSoca0dVwSKgP57GjGpfdhhF4q"></script>-->
+  <!--<script type="text/javascript" src="http://api.map.baidu.com/components?ak=sMG8WCV6EVTsu225jhzGoGkFjUQY94x0"></script>-->
+  <script type="text/javascript" src="http://api.map.baidu.com/components?ak=yYyuNoe5ISF1ioIbM6VSwDuAHaxKGeqc"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=yYyuNoe5ISF1ioIbM6VSwDuAHaxKGeqc"></script>
+
+  <!--<script type="text/javascript">
+    // document.addEventListener('jpush.receiveNotification',( event: any ) => {
+    //     var content;
+    //     if (this.devicePlatform == 'Android'){
+    //       content = event.alert;
+    //       alert(event.extras["cn.jpush.android.EXTRA"].ID)
+    //         alert('123')
+    //     }else {//ios
+    //         if (event == undefined) { //本地通知
+    //             content = event.content;
+    //         }else { //APNS
+    //           content = event.aps.alert;
+    //         }
+    //     }
+    // },false)
+    //
+    // window.onload=function(){
+    //     navigator.geolocation.getCurrentPosition(translatePoint);
+    // }
+
+  </script>-->
+
+</head>
+<style>
+  /* 做任务 我的更多 弹框*/
+  /*共用样式:*/
+  /*外框*/
+  .alert-wrapper.sc-ion-alert-md {
+    border-radius: 10px;
+  }
+  /*上框*/
+  .alert-head.sc-ion-alert-md{
+    /*border-bottom: 1px solid gainsboro;*/
+  }
+  #alert-1-hdr{ font-size: 0.35rem; font-weight: 600;text-align: left;}
+  .alert-title.sc-ion-alert-md {
+    font-size: 0.3rem;
+    font-weight: 600;
+    text-align: center;
+    color: #1e2023;
+  }
+/*下框*/
+  .alert-button-group.sc-ion-alert-md{
+    text-align: center;
+    /*background-color: gainsboro;*/
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-top: solid 1px gainsboro;
+  }
+/*按钮*/
+  .alert-button.sc-ion-alert-md{
+    width: 50%;
+    float: left;
+    text-align: center;
+    -webkit-margin-end: 0px;
+    margin-inline-end: 0px;
+  }
+  /*按钮中字*/
+  .alert-button-inner.sc-ion-alert-md{
+    display: block;
+    text-align: center;
+    font-size: 0.28rem;
+  }
+  /*取消按钮*/
+  .alert-button-group.sc-ion-alert-md .primary{
+    border-right: 1px solid gainsboro;
+  }
+  .alert-button-group.sc-ion-alert-md .quxiao{
+    background-color: yellowgreen;
+  }
+  .alert-button-group.sc-ion-alert-md .baocu{
+   width: 100%;
+  }
+
+
+
+    /*.alert-button-group.sc-ion-alert-md .sure{*/
+    /*border-left: 1px solid gainsboro;*/
+  /*}*/
+/*我的更多单独 input样式*/
+  /*外框*/
+  .alert-input-group.sc-ion-alert-md{
+    /*border-top: 1px solid gainsboro;*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+/*输入框*/
+  .alert-input.sc-ion-alert-md{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-bottom: none;
+  }
+/*其他弹框 中间框*/
+  .alert-message.sc-ion-alert-md{
+    text-align: center;
+  }
+  .alert-message.sc-ion-alert-md .info{
+    text-align: left;
+  }
+  /*.alert-message .sc-ion-alert-md{text-align: left}*/
+</style>
 <body>
   <app-root></app-root>
 </body>

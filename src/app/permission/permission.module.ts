@@ -6,21 +6,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { PermissionPage } from './permission.page';
+import {PrivacyPage} from "../privacy/privacy.page";
 
-const routes: Routes = [
-  {
-    path: '',
-    component: PermissionPage
-  }
-];
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: PermissionPage
+//   }
+// ];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    // RouterModule.forChild(routes)
   ],
-  declarations: [PermissionPage]
+  declarations: [PermissionPage],
+  entryComponents: [PermissionPage]
 })
 export class PermissionPageModule {}

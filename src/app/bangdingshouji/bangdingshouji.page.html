@@ -1,0 +1,35 @@
+
+<ion-header>
+    <div class="yemei">
+        <ul name="baise">
+            <li class="fanhui" [routerLink]="['/home']">
+                <i class="iconfont icon-back"></i>
+            </li>
+            <li class="names">绑定手机号</li>
+            <li class="right_title"></li>
+        </ul>
+      </div>
+</ion-header>
+
+<ion-content>
+    <div class="bdsj">
+      <ul class="titles">微信登录需要绑定您的手机号码哦</ul>
+      <ul class="inputs">
+          <li class="names">手机号</li>
+          <li class="inputs_sjh"><input type="text" placeholder="请输入手机号" [(ngModel)]="sjName"></li>
+          <li class="huoqu">
+            <samp>
+                <button ion-button full  (click)="getYanzheng()" [disabled]="!mobileCode.disable">{{mobileCode.name}}</button>
+            </samp>
+        </li>
+      </ul>
+      <ul class="inputs">
+          <li class="names">验证码</li>
+          <li class="inputs_sjh"><input type="text" placeholder="请输入验证码" [(ngModel)]="yzmName"></li> 
+      </ul>
+      <ul class="denglu">
+          <button ion-button full  (click)="bangding();" [disabled]="!logoCode.disable" >{{logoCode.name}}</button>  
+        <!-- <a>立即绑定</a> -->
+      </ul> 
+    </div>
+</ion-content>

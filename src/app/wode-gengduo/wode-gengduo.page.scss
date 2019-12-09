@@ -1,0 +1,26 @@
+@import "../../style/common.scss";
+@import "../../style/tou_wei.scss";
+
+.shezhi_body{ height: auto; overflow: hidden; background: #ffffff; }
+.shezhi_body ul{ height: 1rem; padding: 0 0.3rem; border-bottom:#e9e9e9 solid 1px;  line-height: 1rem; font-size: 0.28rem;  }
+.shezhi_body ul li{ line-height: 1rem;}
+
+.shezhi_body .name{ width: 35%;   float: left;}
+.shezhi_body .vals{ width: 65%;   float: right; text-align:right; color: #969696; }
+.shezhi_body .vals img{ width:0.58rem ; height: 0.58rem; border-radius:0.29rem; margin-top: 0.21rem;  float: right; }
+//
+//.shezhi_body .vals .yuan{
+//  width: 0.58rem;
+//  height: 0.58rem;
+//  border-radius:0.29rem;
+//}
+.primary{
+  font-size: 16px;
+}
+
+//tankuang
+.alert-title.sc-ion-alert-md {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}

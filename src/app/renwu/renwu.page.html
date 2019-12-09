@@ -1,0 +1,25 @@
+<ion-header>
+    <div class="yemei">
+      <ul name="chengse">
+          <li class="diqu" (click)="get_city_gp_c()">{{gps_city}}</li>
+          <li class="names">任务中心</li>
+          <li class="xiaoxi" (click)="open_xiaoxi()"><span>消息</span><samp  *ngIf="xiaoxi_count != ''" >{{xiaoxi_count}}</samp></li>
+      </ul>
+    </div>
+</ion-header>
+
+<ion-content>
+    <ion-tabs  #renwupages>
+        <ion-tab-bar slot="top" class="inner">
+            <ion-tab-button class="tab-btn-selected" tab="pickables" (click)="get_city_gps('pickables')">
+            <!--<ion-tab-button class="tab-btn-selected" tab="pickables" >-->
+                <ion-label>领任务</ion-label>
+            </ion-tab-button>
+            <ion-tab-button class="tab-btn-selected" tab="mine" (click)="get_city_gps('mine')">
+            <!--<ion-tab-button class="tab-btn-selected" tab="mine" >-->
+                <ion-label>我的任务<samp *ngIf="wode_renwu_count != ''">({{wode_renwu_count}})</samp></ion-label>
+<!--                <ion-label>我的任务<samp *ngIf="wode_renwu_count != ''">({{i}})</samp></ion-label>-->
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <div class="yemei">
+      <ul name="baise">
+          <li class="fanhui" [routerLink]="['/default/wode']">
+          <i class="iconfont icon-back"></i>
+          </li>
+          <li class="names">意见与反馈</li>
+          <li class="right_title"></li>
+      </ul>
+    </div>
+</ion-header>
+
+<ion-content>
+  <div class="bg_body">
+    <div class="yj_fk_body">
+      您有任何疑问或建议，可拨打电话：<br>
+        13241994107     <samp><a href="tel:13241994107">立即拨打</a></samp><br>
+      或添加微信：13241994107      <samp (click)="fuzhiWeixin('13241994107')">复制</samp>
+    </div>
+  </div>
+</ion-content>

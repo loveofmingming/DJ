@@ -1,0 +1,67 @@
+<ion-header>
+    <div class="yemei">
+        <ul name="chengse">
+            <li class="fanhui" [routerLink]="['/default/wode']">
+                <i class="iconfont icon-back"></i>
+            </li>
+            <li class="names">信誉值</li>
+            <li class="right_title"></li>
+        </ul>
+      </div>
+  </ion-header>
+  
+  <ion-content>
+    <div class="gonggong_tanchuang" *ngIf="showBigImageState" (click)="hideBigImage()" >
+        <ul style="margin-top: 1rem;">
+            <li class="xyz">
+                信誉值是什么？<br>
+                <samp>
+                信誉值是用户对导航网的贡献值：<br>
+                》信誉值越高，可领取任务越多：<br>
+                </samp>
+                信誉值区间       进行中任务项数<br>
+                0-19                 最多一项（任务完成后可继续领取）<br>
+                20-39                最多两项<br>
+                40-59                最多三项<br>
+                60-79                最多六项<br>
+                80以上              最多十项<br>
+                <samp>
+                》信誉值大于100，可选择其他城市任务。<br>
+                》导航网将按信誉值大小优先向业主推荐<br>
+                》另外还有机会获得惊喜礼包，获邀参加导航网的福利旅游、公司年会等老会员回馈活动。    <br>
+                </samp>
+            </li>
+        </ul>
+        <ul class="guanbi"></ul>
+    </div>
+    <div class="bg_body">
+        <div class="huobi_tou">
+          <ul class="titles">当前</ul>
+          <ul class="huobizhi"><samp>{{xinyuzhiYue}}</samp>信誉值</ul>
+          <ul class="xyz_con" (click) = 'showBigImage()'>信誉值是什么？</ul>
+        </div>
+        <div class="huobi_title">
+            <ul>
+                获奖记录
+            </ul>
+        </div>
+  
+        <div class="huobi_list" *ngIf="shouruList == 1; else elseBlock">
+            <ul>
+                <li name="titles">还没有获取记录～</li>
+            </ul>
+        </div>
+        <ng-template #elseBlock>
+            <div class="huobi_list">
+                <ul *ngFor="let shouruList of shouruList; index as i;">
+                  <li name="titles"><span>{{shouruList.title}}</span> <samp>+{{shouruList.money}}</samp></li>
+                  <li name="miaoshu"><span>{{shouruList.miaoshu}}</span><samp>{{shouruList.jointime}}</samp></li>
+                </ul>
+            </div>
+            
+        </ng-template>
+    </div>
+    
+  
+  </ion-content>
+  

@@ -1,0 +1,89 @@
+
+<ion-content>
+        <div class="no_page_bg" *ngIf="num == 0">
+                <ul class="imgs">
+                    <img src="../../assets/img/renwumsg.png">
+                </ul>
+                <ul class="titles">您还没有任务,<span (click)="tiaozhuan()">去领取 </span></ul>
+                <!--<ul class="anniu" (click) = "reload_page()">重新加载</ul>-->
+            </div>
+        <div class="renwu_con" *ngIf="num != 0">
+
+        <ul class="jinxingzhong">进行中（{{doingnum}}）</ul>
+        <div class="no_page_bg_jxz" *ngIf="doingnum == '0'; else haveBlock">
+            <ul class="img">
+                <!--<img src="../../assets/img/renwumsg.png">-->
+                <img src="../../assets/img/renwumsg_white.png">
+                <ul class="title">您还没有任务,<span (click)="tiaozhuan()">去领取 </span></ul>
+            </ul>
+
+        </div>
+            <ng-template #haveBlock>
+        <ul class="list_s" *ngFor="let doinglist of doingList; index as i;" (click)="open_renwu_jxz(doinglist.link,doinglist.id,doinglist.task_id)">
+            <div class="renwu_con_imgs">
+                <img [src]="doinglist.top_img_name">
+            </div>
+            <div class="renwu_con_miaoshu">
+                <!-- <samp [routerLink]="[doinglist.link,doinglist.id,doinglist.task_id]">{{doinglist.name}}</samp><br>  -->
+                <span  name="title">{{doinglist.name}}<p>{{doinglist.timelong}}</p></span>
+                <!--<span name="over_time"></span>-->
+                <span>{{doinglist.project}}</span>
+                <span *ngIf = "(doinglist.action == 1 || doinglist.action == 2 || doinglist.action == 3) && doinglist.juli; else elseBlock">距您大约{{doinglist.juli}}</span>
+                <ng-template #elseBlock>
+<!--                    <span >{{doingList.address}}</span>-->
+                    <span >无法定位项目距离</span>
+                </ng-template>
+
+            </div>
+            <div class="renwu_con_lingqu">
+                <ul class="list_1"></ul>
+                <!--<ul class="list_4" *ngIf="doinglist.action == 1" (click)="open_renwu_jxz(doinglist.link,doinglist.id,doinglist.task_id)">做任务</ul>-->
+                <!--<ul class="list_5" *ngIf="doinglist.action == 2" (click)="open_renwu_jxz(doinglist.link,doinglist.id,doinglist.task_id)">审核中</ul>-->
+                <!--<ul class="list_4" *ngIf="doinglist.action == 3" (click)="open_renwu_jxz(doinglist.link,doinglist.id,doinglist.task_id)">去修改</ul>-->
+                <ul class="list_4" *ngIf="doinglist.action == 1" >做任务</ul>
+                <ul class="list_5" *ngIf="doinglist.action == 2" >审核中</ul>
+                <ul class="list_4" *ngIf="doinglist.action == 3" >去修改</ul>
+                <ul class="list_6" *ngIf="doinglist.action == 4 " >审核未通过</ul>
+                <!--<ul class="list_4" [routerLink]="[doinglist.link,doinglist.id]">{{doinglist.zhuangtai}}</ul>-->
+            </div>
+        </ul>
+        <!--<ul class="jianju"></ul>-->
+            </ng-template>
+        <ul class="yijieshu" *ngIf="finishnum != '0'">已结束（{{finishnum}}）</ul>
+
+        <ul class="list_s" *ngFor="let item of finishList; index as i;" (click)="open_renwu_wc(item.link,item.id,item.task_id)" >
+            <div class="renwu_con_imgs">
+                <img [src]="item.top_img_name">
+            </div>
+            <div class="renwu_con_miaoshu" >
+                <!-- <samp [routerLink]="[item.link,item.id,item.task_id]">{{item.name}}</samp><br> -->
+                <samp >{{item.name}}</samp>
+                <span class="txt">{{item.project}}</span>
+<!--                <span class="dis" *ngIf="item.action == 4 ">距您大约{{item.juli}}</span>-->
+                <span class="dis" *ngIf="item.address; else elseBlock">{{item.address}}</span>
+                <ng-template #elseBlock>
+                    <span >无法定位项目距离</span>
+                </ng-template>
+            </div>
+            <div class="renwu_con_lingqu" >
+                <ul class="list_1"></ul>
+                <!--<ul class="list_6" *ngIf="item.action == 10 " (click)="open_renwu_wc(item.link,item.id,item.task_id)">审核未通过</ul>-->
+                <!--<ul class="list_3" *ngIf="item.action == 9 " (click)="open_renwu_wc(item.link,item.id,item.task_id)">领取奖励</ul>-->
+                <!--<ul class="list_7_1" *ngIf="item.action == 11 " (click)="open_renwu_wc(item.link,item.id,item.task_id)">已获奖励</ul>  -->
+                <ul class="list_6" *ngIf="item.action == 10 " >项目已过期</ul>
+                <ul class="list_6" *ngIf="item.action == 4 " >审核未通过</ul>
+                <ul class="list_3" *ngIf="item.action == 9 " >领取奖励</ul>
+                <ul class="list_7_1" *ngIf="item.action == 11 ">已获奖励</ul>
+
+                <ul class="list_2" *ngIf="item.action == 11 " >{{item.bonus_str}}</ul>
+            </div>
+        </ul>
+        <ul class="jianju"></ul>
+    </div>
+
+    <!-- <div class="bottom_tab">
+        <li class="renwu">任务</li>
+        <li class="wode" [routerLink]="['/default/wode']">我的</li>
+    </div> -->
+</ion-content>
+

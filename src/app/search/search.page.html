@@ -1,0 +1,61 @@
+<ion-content>
+  <!--<input id="action" value="{{txtin}}">-->
+  <div id="con"  *ngIf="search; else elseBlock">
+    <div class="title"  >
+      <ul name="chengse">
+        <li class="fanhui" (click)="back()" >
+          取消
+        </li>
+        <li class="names">输入地址</li>
+        <li class="right_title" (click)="sendMessage(action.value)">完成</li>
+      </ul>
+    </div>
+    <div class="top">
+      <div class="in_con">
+<!--有放大镜的-->
+        <input #action id="suggestId" type="text" class="iconfont" type="search" value="" placeholder="&#xe680;请您输入地址" name="keyword"/>
+
+<!--        <input #action id="suggestId" type="text"  class="iconfont"   name="keyword" maxlength="50"/>-->
+      </div>
+
+    </div>
+    <!--<button class="btn" id="searchResultPanel" onclick="search()">搜索</button>-->
+    <!--<div class="shoudong" (click)="open_position()">-->
+      <!--<span>手动输入</span>-->
+    <!--</div>-->
+
+
+  </div>
+
+  <!--<ng-template #elseBlock>-->
+    <!--<div class="con" >-->
+      <!--<div class="title"  >-->
+        <!--<ul name="shoudong">-->
+          <!--<li class="fanhui" (click)="back()" >-->
+            <!--<i class="iconfont icon-back"></i>-->
+          <!--</li>-->
+          <!--<li class="names">输入地址</li>-->
+          <!--<li class="right_title" (click)="sendMessage(action.value)">完成</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <!--<div class="top">-->
+        <!--<div class="in_con">-->
+
+          <!--<input #action id="suggestId" type="text" class="iconfont" type="search" value="{{txtin}}"placeholder="&#xe680;搜索附近位置" name="keyword"/>-->
+
+        <!--</div>-->
+
+      <!--</div>-->
+      <!--&lt;!&ndash;<button class="btn" id="searchResultPanel" onclick="search()">搜索</button>&ndash;&gt;-->
+      <!--<div class="shoudong" (click)="sd_back()">-->
+        <!--<span>返回地图搜索地点</span>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</ng-template>-->
+
+  <!--<div id = "map" style="width:100%;height: 390px"></div>-->
+  <!--<div id="allmap" style="width:100%;height: 690px"  > </div>-->
+  <!--<div id="l-map" style="width:100%;height: 690px"  ></div>-->
+  <div id="r-result"></div>
+  <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+</ion-content>

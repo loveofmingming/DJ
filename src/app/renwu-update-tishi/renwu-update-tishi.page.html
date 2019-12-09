@@ -1,0 +1,119 @@
+<ion-header>
+  <div class="yemei">
+      <ul name="baise">
+          <li class="fanhui" (click)="back()">
+              <i class="iconfont icon-back"></i>
+          </li>
+          <li class="names">任务详情</li>
+          <!-- <li class="right_title" [routerLink]="['/renwu-con',tid,2]">任务说明</li> --> 
+          <li class="right_title" (click)="open_con(tid,2)">任务说明</li>
+      </ul>
+    </div>
+</ion-header>
+
+<ion-content>
+
+  <div class="renwu_tishi">
+      您的部分提交项未合格，请尽快修改，过期将自动视为不合格。<br>
+      <ul class="lists" *ngFor="let item_new of taskInfo.mytask?.my_tt_list; index as k;">
+        <li class="lists_li" *ngIf="item_new.my_task_items.reason_rejected != '0'">
+               <span class="header">{{k+1}}.</span>
+               <span class="con">{{item_new.name}}</span>
+               <span class="bot">{{item_new.my_task_items.reason_rejected}}</span><br>
+        </li>
+      </ul>
+      <span class="time" *ngIf="taskInfo.mytask?.limit_time !='' ">（还剩{{taskInfo.mytask?.limit_time}}）</span>
+      <span class="time" *ngIf="taskInfo.mytask?.limit_time =='' ">（已过期）</span>
+      <!-- <samp [routerLink]="['/renwu-update',mid,tid]">去修改</samp> -->
+      <samp *ngIf="taskInfo.mytask?.limit_time !='' " (click)="open_renwu_update(mid,tid)">去修改</samp>
+      <samp *ngIf="taskInfo.mytask?.limit_time !='' " (click)="fangqiUpdate()">放弃修改</samp>
+  </div>
+  <div class="renwu_con_jbqk no_bian">
+      <ul class="titles">
+        <li name="zhaopian"><img [src]="taskInfo.task?.top_img_name"></li>
+        <li name="names">项目现场拍照</li>
+        <li name="jiangli"> </li>
+      </ul>
+      <ul class="f_titles">
+          <li>
+              <span class="header"><samp name="head">项目名称：</samp></span>
+              <span class="cont">{{taskInfo.task?.project}}</span>
+          </li><br>
+          <li>
+              <span class="header"><samp name="head">项目介绍：</samp></span>
+              <span class="cont">{{taskInfo.task?.description}}</span>
+          </li><br>
+          <li>
+              <span class="header"><samp name="head">项目地址：</samp></span>
+              <span class="cont">{{taskInfo.task?.address}}</span>
+          </li><br>
+          <li>
+              <span class="header"><samp name="head">项目单位：</samp></span>
+              <span class="cont">{{taskInfo.task?.owner}}</span>
+          </li><br>
+          <!--<samp>项目名称：</samp>{{taskInfo.task?.project}}<br>-->
+          <!--<samp>项目介绍：</samp>{{taskInfo.task?.description}}<br>-->
+          <!--<samp>项目地址：</samp>{{taskInfo.task?.address}}<br>-->
+          <!--<samp>项目单位：</samp>{{taskInfo.task?.owner}}<br> -->
+      </ul>
+  </div>
+  <!-- <div class="renwu_zhuangtai">
+    <ul class="jianju"></ul>
+    <ul class="titles">状态:<samp name="lanse">修改中</samp> <samp name="youce">提交后，15分钟内完成审核</samp></ul>
+    <ul class="lists">审核反馈时间：2018-09-09     18:00</ul>
+    <ul class="lists">任务提交时间：{{taskInfo.task.created_tj}}</ul>
+    <ul class="lists">任务领取时间：{{taskInfo.task.created_get}}</ul>
+  </div>  -->
+  <div class="renwu_zhuangtai">
+      <ul class="jianju"></ul>
+      <ul class="titles" *ngIf=" update == '0' ;else elseBlock">状态:
+          <samp name="lanse"  *ngIf="taskInfo.mytask?.limit_time !='' ">修改中</samp>
+          <samp name="lanse"  *ngIf="taskInfo.mytask?.limit_time =='' ">(已过期)</samp>
+          <samp name="youce"  *ngIf="taskInfo.mytask?.limit_time !='' ">提交后，15分钟内完成审核</samp></ul>
+      <ng-template #elseBlock>
+      <ul class="titles">状态:<samp name="lanse">审核中</samp> <samp name="youce">正在审核，请稍候</samp></ul>
+      </ng-template>
+      <ul class="lists" *ngFor="let item_vv of taskInfo.mytask?.action_records; index as i_v;" >
+          <samp *ngIf="item_vv.action==1">任务领取时间：{{item_vv.created}}</samp>
+          <samp *ngIf="item_vv.action==2">任务提交时间：{{item_vv.created}}</samp>
+          <!--<samp *ngIf="item_vv.action==3">审核反馈时间：{{item_vv.created}}（{{item_vv.reason_rejected}}）</samp>-->
+          <samp *ngIf="item_vv.action==3">审核反馈时间：{{item_vv.created}}</samp>
+          <samp *ngIf="item_vv.action==9">审核通过时间：{{item_vv.created}}</samp>
+          <samp *ngIf="item_vv.action==11">奖励领取时间：{{item_vv.created}}</samp>
+          <samp *ngIf="item_vv.action==10">任务已过期</samp>
+      </ul>
+  </div>
+  <div class="renwu_con_miaoshu update">
+    <ul class="jianju"></ul>    
+    <ul class="titles_2">提交内容：</ul>
+
+    <ul class="lists" *ngFor = " let item of taskInfo.mytask?.my_tt_list; index as i;">      
+        <li name="titles">
+            <span class="header">{{i+1}}.</span>
+            <span class="con_goup"><samp>{{item.name}}</samp></span>
+         </li>
+        <li name="imgs" *ngIf="item.is_gps!=1">
+          <samp *ngFor="let tasksListConTtlist of item.img_name; index as ti;">
+              <img [src] = "img_url+'/'+tasksListConTtlist.img_name" (click)="showBigImages(i,ti,0)" >
+          </samp>
+        </li>
+        <li name="titles" id="object" *ngIf="item.is_gps==1"><samp>{{taskInfo.mytask?.address}}</samp> </li>
+    </ul>
+  </div>
+    <div class="gonggong_tanchuang" *ngIf="showBigImageState">
+        <ul class="yangli_num">{{big_img_ti+1}}/{{big_img_count}}</ul>
+        <ul class="yangli" (swipe)="swipeEvnet($event)">
+            <!--
+           <img src="../../assets/img/ls.jpg" >
+           -->
+            <img [src]="big_img">
+            <!--<ion-slides pager="true" [options]="slideOpts">-->
+                <!--<ion-slide *ngFor="let swiper_img of taskInfo.mytask.my_tt_list[this.big_img_i].img_name ;index as img_i">-->
+                    <!--<h1> <img [src]="big_img" ></h1>-->
+                    <!--&lt;!&ndash;<h1> <img [src]="this.img_url + '/'+ this.taskInfo.mytask.my_tt_list[this.big_img_i].img_name[this.big_img_ti].img_name" ></h1>&ndash;&gt;-->
+                <!--</ion-slide>-->
+            <!--</ion-slides>-->
+        </ul>
+        <ul class="guanbi" (click)="hideBigImage()"></ul>
+    </div>
+</ion-content>

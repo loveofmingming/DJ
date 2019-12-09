@@ -1,0 +1,68 @@
+  <ion-content>
+    <div class="bg_body">
+      <div class="wode_toubu">
+        <ul>
+            <li class="names" *ngIf="msg.userName1 ; else e_e ">{{msg.userName1}}</li>
+            <ng-template #e_e>
+            <li class="names">{{userName}}</li>
+            </ng-template>
+            <li *ngIf="msg.userTouxiang1 ; else elseBlock" class="touxiang" [routerLink]="['/wode-gengduo']">
+                <img src="{{msg.userTouxiang1}}">
+            </li>
+            <ng-template #elseBlock>
+                <li class="touxiang" [routerLink]="['/wode-gengduo']">
+                  <img src="{{img_url}}/{{userTouxiang}}">
+              </li>
+            </ng-template>
+        </ul>
+      </div>
+
+      <div class="wode_f_title">
+
+        <ul><li class="titles">小金库</li><li class="titles">导航币</li><li class="titles">信誉值</li></ul>
+        <ul><li class="nums">{{xiaojinkuYue}}</li><li class="nums">{{daohangbiYue}}</li><li class="nums">{{xinyuzhiYue}}</li></ul>
+        <ul>
+            <li class="anniu">
+                <samp [routerLink]="['/xiaojinku']">去提现</samp>
+            </li>
+            <li class="anniu">
+                <samp [routerLink]="['/daohangbi']">去兑换</samp>
+            </li>
+            <li class="anniu">
+                <a [routerLink]="['/xinyuzhi']">如何获取？</a>
+            </li>
+        </ul>
+      </div>
+
+      <div class="wode_list">
+        <ul [routerLink]="['/yijian-fankui']">
+            <li class="io_1"></li>
+            <li class="titles">意见与反馈</li>
+            <li class="gengduo">
+            <i class="iconfont icon-forward1"></i>
+            </li>
+        </ul>
+        <ul [routerLink]="['/guanyuwomen']">
+            <li class="io_2"></li>
+            <li class="titles">关于斗金</li>
+            <li class="gengduo">
+                <i class="iconfont icon-forward1"></i>
+            </li>
+        </ul>
+        <ul [routerLink]="['/shezhi']">
+            <li class="io_3"></li>
+            <li class="titles">设置</li>
+            <li class="gengduo">
+                <i class="iconfont icon-forward1"></i>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- <div class="bottom_tab">
+        <li class="renwu_out" [routerLink]="['/index']">任务</li>
+        <li class="wode_out">我的</li>
+    </div> -->
+  </ion-content>
+  
+   

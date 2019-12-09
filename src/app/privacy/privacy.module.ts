@@ -7,20 +7,22 @@ import { IonicModule } from '@ionic/angular';
 
 import { PrivacyPage } from './privacy.page';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: PrivacyPage
-  }
-];
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: PrivacyPage
+//   }
+// ];
+// 写类似于消息这种的 要把此去掉
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    // RouterModule.forChild(routes)  // 去掉
   ],
-  declarations: [PrivacyPage]
+  declarations: [PrivacyPage],
+  entryComponents: [PrivacyPage]
 })
 export class PrivacyPageModule {}

@@ -1,0 +1,27 @@
+
+<ion-content>
+  <div class="no_page_bg" *ngIf="!tasksList">
+      <ul class="imgs"><img src="../../assets/img/404.jpg"></ul>
+      <ul class="titles">附近没有项目</ul>
+      <ul class="anniu" (click) = "reload_page()">重新加载</ul>
+  </div>
+  <div class="renwu_con" *ngIf="tasksList">
+      <ul class="list_s" *ngFor="let tasklist of tasksList; index as i;" (click)="open_con(tasklist.id,1)">
+        <div class="renwu_con_imgs">
+          <img [src]="tasklist.top_img_name?tasklist.top_img_name:default_img">
+        </div>
+        <div class="renwu_con_miaoshu">
+            <span name="title">{{tasklist.name}}</span>
+            <span>{{tasklist.project}}</span>
+            <span>距您{{test_info}}大约{{tasklist.juli}}</span>
+        </div>
+        <div class="renwu_con_lingqu">
+          <ul class="list_1">现金奖励</ul>
+          <ul class="list_2">{{tasklist.rmb_r_num}}元</ul>
+          <ul class="list_3" (click)="open_con(tasklist.id,1)">领任务</ul>
+        </div>
+      </ul>
+      <ul class="jianju"></ul>
+  </div>
+</ion-content>
+

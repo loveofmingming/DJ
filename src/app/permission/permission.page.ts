@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'app-permission',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PermissionPage implements OnInit {
 
-  constructor() { }
+  constructor(
+      private modalCtrl: ModalController,
+  ) { }
 
   ngOnInit() {
   }
-
+  back() {
+    this.modalCtrl.dismiss();
+    // this.router.navigateByUrl('default/renwu/pickables');
+  }
 }

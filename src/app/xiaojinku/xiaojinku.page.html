@@ -1,0 +1,86 @@
+<ion-header>
+    <div class="yemei">
+        <ul name="chengse">
+            <li class="fanhui" [routerLink]="['/default/wode']">
+                <i class="iconfont icon-back"></i>
+            </li>
+            <li class="names">小金库</li>
+            <li class="right_title"></li>
+        </ul>
+      </div>
+  </ion-header>
+  
+  <ion-content>
+    <div class="bg_body">
+        <div class="huobi_tou">
+          <ul class="titles">余额</ul>
+          <ul class="huobizhi" (click)="onClose()"><samp>{{xiaojinkuYue}}</samp>元</ul>
+          <ul class="anniu" (click)="onTixing()">去提现</ul>
+        </div>
+  
+        <div class="huobi_big">
+            <ul *ngIf="xiaojinkuType == 'zhuanru'; else elsexiaojinkuType">
+                <li class="zhuanru bian" (click)="getAllXiaojinkuZhuanRu()">转入</li>
+                <li class="zhuanchu" (click)="getAllXiaojinkuZhuanChu()">转出</li>
+            </ul>
+            <ng-template #elsexiaojinkuType>
+                <ul>
+                    <li class="zhuanru" (click)="getAllXiaojinkuZhuanRu()">转入</li>
+                    <li class="zhuanchu bian" (click)="getAllXiaojinkuZhuanChu()">转出</li>
+                </ul>
+            </ng-template>
+        </div>
+  
+        <div class="huobi_list" *ngIf="shouruList == '1' ; else elseBlock">
+            <ul>
+                <li name="titles" *ngIf="xiaojinkuType == 'zhuanru'; else elsexiaojinkuType">
+                    还没有收入记录～
+                    <!--<img src="../../assets/img/wujilu.png" alt="">-->
+                </li>
+                <ng-template #elsexiaojinkuType>
+                    <li name="titles">还没有转出记录～</li>
+                    <!--<li>-->
+                        <!--<img src="../../assets/img/wujilu.png" alt="">-->
+                    <!--</li>-->
+
+                </ng-template>
+            </ul>
+        </div>
+        <ng-template #elseBlock>
+            <div class="huobi_list">
+            <ul *ngFor = " let shouruList of shouruList; index as i;">
+                <li name="titles">
+                    <span>{{shouruList.title}} </span>
+                    <samp *ngIf="xiaojinkuType == 'zhuanru'; else elsexiaojinkuType">+{{shouruList.money}}</samp>
+                    <ng-template #elsexiaojinkuType>
+                        <samp>-{{shouruList.money}}</samp>
+                    </ng-template>
+                </li>
+                <li name="miaoshu">
+                    <span>{{shouruList.miaoshu}}</span>
+                    <samp>{{shouruList.jointime}}</samp>
+                </li>
+            </ul>
+            <!-- <ul>
+              <li name="titles">项目现场拍照 <samp>+30</samp></li>
+              <li name="miaoshu">新型混练胶生产项目<samp>2018-11-12   13:00</samp></li>
+            </ul>
+            <ul>
+                <li name="titles">项目现场拍照 <samp>+30</samp></li>
+                <li name="miaoshu">新型混练胶生产项目<samp>2018-11-12   13:00</samp></li>
+            </ul>
+            <ul>
+                <li name="titles">项目现场拍照 <samp>+30</samp></li>
+                <li name="miaoshu">新型混练胶生产项目<samp>2018-11-12   13:00</samp></li>
+            </ul>
+            <ul>
+                <li name="titles">项目现场拍照 <samp>+30</samp></li>
+                <li name="miaoshu">新型混练胶生产项目<samp>2018-11-12   13:00</samp></li>
+            </ul> -->
+          </div>
+        </ng-template>
+    </div>
+    
+  
+  </ion-content>
+  

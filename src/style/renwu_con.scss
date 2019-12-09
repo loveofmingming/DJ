@@ -1,0 +1,196 @@
+
+
+.renwu_con_jbqk{ margin: 0 0.35rem; height: auto; overflow: hidden; }
+.renwu_con_jbqk .titles{ margin: 0.2rem 0; font-size: 0.29rem; color: #333333; overflow: hidden;}
+.renwu_con_jbqk .titles samp{ color: #ff6600;}
+.renwu_con_jbqk .titles li{ float: left; height: 0.85rem; line-height:  0.85rem; text-align: left;}
+.renwu_con_jbqk .titles li img{ width: 0.85rem; height: 0.85rem; border-radius:5px;}
+.renwu_con_jbqk .titles li[name="zhaopian"]{ width: 1rem; }
+.renwu_con_jbqk .titles li[name="names"]{ width:3rem; font-weight: 600; }
+.renwu_con_jbqk .titles li[name="jiangli"]{ width: 2.5rem; float: right; text-align: right  }
+
+.renwu_con_jbqk .f_titles{ font-size: 0.25rem; color: #666666; line-height: 0.4rem; margin-bottom: 0.3rem;}
+.renwu_con_jbqk .f_titles li{width: 100%;float:left}
+.renwu_con_jbqk .f_titles li span{display: block;float: left;white-space: normal}
+.renwu_con_jbqk .f_titles li .header{height: auto }
+.renwu_con_jbqk .f_titles li .cont{width: 77%;height: auto }
+
+.renwu_con_jbqk .f_titles samp[name="head"]{ font-size:0.26rem; color: #333333;line-height: 0.4rem;word-break: break-all}
+
+.renwu_dh{ width: 99%; height: 0.90rem;vertical-align: middle; z-index: 999; }
+.renwu_dh li{ width: 50%; float:left; height: 0.8rem; text-align: center; font-size: 0.29rem; line-height: 0.8rem;
+  border:#ff6600 solid 0.02rem;}
+.renwu_dh .on{ background: #ff6600; color: #ffffff;  }
+//.search-box .out{ background: #ff6600; color: #ffffff;  }
+.renwu_dh .out{ background: #ffffff; color: #ff6600;  }
+
+.renwu_con_miaoshu{ width: 100%; height: auto; overflow: hidden; margin-bottom: 0.8rem; }
+.renwu_con_miaoshu ul{ margin: 0 0.35rem;}
+.renwu_con_miaoshu .titles_1{ height: 0.5rem; line-height: 0.7rem; font-size: 0.25rem; color: #ff6600;font-weight: 700;}
+.renwu_con_miaoshu .titles_2{ height: 0.5rem; line-height: 0.7rem; font-size: 0.25rem; color: #333333; font-weight: 700; }
+.renwu_con_miaoshu .titles-title{width: 2rem}
+.renwu_con_miaoshu .jianju{ height: 0.2rem; background: #f4f4f4; margin: 0;   }
+
+.renwu_con_miaoshu .lists{ height: auto; overflow: hidden; font-size: 0.25rem; padding: 0.2rem 0; border-bottom:#e9e9e9 solid 1px; }
+//去修改 任务详情 adress 下面下划线 去掉
+.update ul:nth-last-of-type(1){  border-bottom:none }
+//任务已完成 任务详情 adress 下面下划线 去掉
+.finish ul:nth-last-of-type(1){  border-bottom:none }
+//任务已通过 任务详情 adress 下面下划线 去掉
+.pass ul:nth-last-of-type(1){  border-bottom:none }
+//审核中 任务详情  adress下面下划线
+.shenhz ul:nth-last-of-type(1){  border-bottom:none }
+//做任务  任务说明 任务详情 下划线
+.ling ul:nth-last-of-type(2){  border-bottom:none }
+//首页任务详情下划线
+.ling ul:nth-of-type(7){  border-bottom:none }
+.renwu_con_miaoshu .msg{ height: auto; overflow: hidden; font-size: 0.25rem; padding: 0.2rem 0; border-bottom:#ffffff solid 1px;margin-left: 0;margin-right: 0;background: #fff3da;margin-bottom: 0.25rem}
+.renwu_con_miaoshu .lists li{ width: 100%; float: left; height: auto;text-align: left;}
+//领任务页
+.renwu_con_miaoshu .lists li[name="titles"]{  color: #666666; line-height: 0.4rem;width: 100%}
+
+.renwu_con_miaoshu .lists li[name="titles"] .titles-title{ display: block;height: auto; color: #666666; line-height: 0.4rem;width: 5%}
+.renwu_con_miaoshu .lists li[name="titles"] .titles_scription{display: block;height: auto; line-height: 0.4rem;width: 93%}
+.renwu_con_miaoshu .lists li[name="titles-scription"]{  color: #666666; line-height: 0.4rem; padding-left: 0.2rem }
+.renwu_con_miaoshu .lists li[name="titles"] samp{ color: #8b3800; }
+
+.renwu_con_miaoshu .lists li[name="titles"] a{display: block ; float: right; color: #ff6600;}
+.renwu_con_miaoshu .lists li[name="titles"] a[name="tishi_lvse"]{display: block ; float: right; color: #009307;}
+.renwu_con_miaoshu .lists li[name="titles"] a[name="tishi_hongse"]{display: block ; float: right; color: #ff0000;}
+.renwu_con_miaoshu .lists li[name="titles"] a[name="tishi_lvse"] samp {color: #ff6600}
+//任务审核中页
+.renwu_con_miaoshu .lists li[name="titles"] span {display: block;float: left}
+.renwu_con_miaoshu .lists li[name="titles"] .header{width: 5%;height: auto;}
+.renwu_con_miaoshu .lists li[name="titles"] .con{width: 68%;height: auto;}
+
+.renwu_con_miaoshu .lists li[name="titles"] .bot{width: 25%;height: auto;}
+//审核通过页面
+.renwu_con_miaoshu .lists li[name="titles"] .con_pass{width: 63%;height: auto;}
+.renwu_con_miaoshu .lists li[name="titles"] .bot_pass{width: 28%;height: auto;}
+//任务已完成页
+.renwu_con_miaoshu .lists li[name="titles"] .con_finish{width: 50%;height: auto;}
+.renwu_con_miaoshu .lists li[name="titles"] .bot_finish{width: 42%;height: auto;}
+//去修改
+.renwu_con_miaoshu .lists li[name="titles"] .con_goup{width: 68%;height: auto;}
+
+//公共下部项目地址
+.renwu_con_miaoshu .lists #object {display:block;height: 0.4rem;padding-left: 0.3rem ; padding-top: 0.15rem}
+.renwu_con_miaoshu .lists #object samp{color: blue}
+//
+//.renwu_con_miaoshu .lists li[name="imgs"]{ margin: 0.08rem auto; }
+//.renwu_con_miaoshu .lists li[name="imgs"] span{ display: block;  float: left; width: 1.3rem; height: 1.2rem;margin: 0.1rem 0.1rem}
+////.renwu_con_miaoshu .lists li[name="imgs"] span img{ width: 1.2rem; height: 1.2rem; border-radius: 5px; margin-right: 0.1rem;margin-left: 22px;margin-top: 0.1rem}
+//.renwu_con_miaoshu .lists li[name="imgs"] span td{ position: absolute;  padding-left: 0.96rem;  font-size: 0.31rem; line-height: 0.2rem; color: #333333;}
+////涉及到任务详情
+//.renwu_con_miaoshu .lists li[name="imgs"] img{ width: 1.2rem; height: 1.2rem; border-radius: 5px; margin-right: 0.1rem;margin-left: 22px;margin-top: 0.1rem;margin-bottom: 0.1rem}
+//.renwu_con_miaoshu .lists li[name="imgs"] span img{ margin-top: 0rem}
+
+
+.renwu_con_miaoshu .lists li[name="imgs"]{ margin: 0.08rem auto;margin-left: 0.3rem;width: 90%; }
+.renwu_con_miaoshu .lists li[name="imgs"] span{ display: block;  float: left; width: 1.3rem; height: 1.2rem;}
+.renwu_con_miaoshu .lists li[name="imgs"] span td{ position: absolute;;  padding-left: 0.96rem;  font-size: 0.3rem; line-height: 0.2rem; color: #333333;   }
+
+//.renwu_con_miaoshu .lists .add_left span:first-child{
+//  margin-left: 0.3rem
+//}
+//查看提交任务详情中的图片，第一张距左
+//.renwu_con_miaoshu .lists li[name="imgs"] samp:first-child{
+//  margin-left: 0.3rem
+//}
+//.renwu_con_miaoshu .lists li[name="imgs"]:first-child{
+//  margin-left: 0.3rem
+//}
+.renwu_con_miaoshu .lists li[name="imgs"] img{ width: 1.2rem; height: 1.2rem; border-radius: 5px; margin-right: 0.1rem;margin-top: 0.1rem;}
+
+
+
+
+.renwu_con_miaoshu .lists li[name="beizhu"]{  color: #ff6600; line-height: 0.35rem; font-size: 0.21rem; background: #fff3da; padding: 0.05rem 0.1rem; ;margin-left: 0.35rem }
+.renwu_con_miaoshu .lists li[name="anniu"]{ height: 0.5rem; margin: 0.2rem 0.1rem; }
+.renwu_con_miaoshu .lists li[name="anniu"] samp{ width: 1.35rem; height: 0.5rem; text-align: center; border-radius: 0.7rem; display: block; line-height: 0.5rem; border: #ff6600 solid 1px; color: #ff6600; float: left; margin-right: 0.1rem;margin-left: 0.2rem}
+.renwu_con_miaoshu .lists li[name="dizhi_list"]{ height:auto; color: #666666; line-height: 0.4rem; margin-bottom: 0.3rem; margin-left: 0.2rem; }
+.renwu_con_miaoshu .lists li[name="dizhi_list"] samp{ color: #0069d5;}
+.renwu_con_miaoshu .lists li[name="dizhi_list"] .Fruit samp{display: inline-block; color: black;float: right;padding-right: 0.5rem}
+.renwu_con_miaoshu .lingqu {  height: 0.8rem; font-size: 0.31rem;  text-align: center; line-height: 0.8rem; color: #ffffff;  background: #ff6600 ;position: fixed;z-index: 10;bottom: 0;left: 0;right: 0;margin: 0 0;}
+ .renwu_con_miaoshu .lingqu_no {  height: 0.8rem; font-size: 0.31rem;  text-align: center; line-height: 0.7rem; color: #ffffff;  background: #999  ;position: fixed;z-index: 10;bottom: 0;left: 0;right: 0 ;margin: 0 0;}
+
+.renwu_choulao{  width: 100%; height: auto; overflow: hidden; margin-bottom: 0.8rem;}
+.renwu_choulao ul{ padding: 0 0.35rem;}
+.renwu_choulao .titles{ height:0.75rem ; background: #f4f4f4;line-height: 0.75rem; font-size: 0.25rem; color: #333333; border-bottom:#e9e9e9 solid 1px;}
+.renwu_choulao .titles li{ width: 33%; float: left;  text-align: center;  }
+
+//任务酬劳
+.renwu_choulao .titles_list{ min-height:0.7rem ; overflow: hidden; height: auto; line-height: 0.4rem; padding-top: 0.15rem; padding-bottom: 0.15rem;   font-size: 0.24rem; color: #333333; border-bottom:#e9e9e9 solid 1px;}
+.renwu_choulao .titles_list li{ float: left; width: 28%;  text-align:left; }
+
+.renwu_choulao .titles_list li[name="tit"]{ float: left; width: 5%;  text-align:left; }
+
+.renwu_choulao .titles_list li[name="jiangli"]{ color: #969696; text-align: center;padding-left: 0.1rem;width: 33%;}
+.renwu_choulao .titles_list li samp{ color: #ff6600;}
+
+.renwu_choulao .ftitles{ height:0.75rem ; background: #f6f6f6;line-height: 0.4rem; font-size: 0.21rem; color: #ff6600; border-bottom:#e9e9e9 solid 1px;}
+
+.renwu_choulao .ftitles li[name="titles"]{ width: 30%; text-align:left; }
+.renwu_choulao .ftitles li{  float: left;  text-align: center; padding-left: 0.1rem;width: 35%;line-height: 0.75rem;overflow: hidden}
+
+
+.renwu_choulao .content{ height:auto ; padding-bottom: 0.26rem;   font-size: 0.25rem; overflow: hidden;  border-bottom:#e9e9e9 solid 1px; margin-bottom: 0.2rem;}
+.renwu_choulao .content li{ float:left; width: 100%; }
+.renwu_choulao .content li[name="titles"]{ height: 0.5rem;   margin-top: 0.3rem; color: #ff0000; font-size: 0.25rem;}
+.renwu_choulao .content li[name="titles"] samp{ width: 0.29rem; height: 0.29rem; margin-top: 0.028rem; margin-right: 0.2rem; text-align:center; display: block; line-height: 0.29rem; float: left; border-radius: 0.2rem; background: #ff0000; color: #ffffff; font-size: 0.21rem;}
+.renwu_choulao .content li[name="miaoshu"]{ color: #666666; line-height: 0.4rem; font-size: 0.21rem;}
+.renwu_choulao .content li[name="miaoshu"] samp{  color: #333333; font-size: 0.25rem;}
+.renwu_choulao .content li[name="miaoshu"] samp[name="hui"]{   color: #969696; font-size: 0.21rem;}
+.renwu_choulao .no_bian{ border-bottom: 0; padding-bottom: 0.1rem;}
+.renwu_choulao .lingqu { margin: 0 0.3rem ; height: 0.8rem; font-size: 0.31rem;  text-align: center; line-height: 0.8rem; color: #ffffff;  background: #ff6600;  position: fixed;z-index: 10;bottom: 0;left: 0;right: 0;margin: 0 0;}
+
+.no_bian{ border-bottom: 0;  }
+ 
+.renwu_zhuangtai{ width: 100%; height: auto; overflow: hidden; padding-bottom: 0.2rem;   }
+.renwu_zhuangtai .jianju{ height: 0.2rem; background: #f4f4f4; margin: 0;   }
+.renwu_zhuangtai .titles{ height: 0.9rem; margin-bottom: 0.2rem; line-height: 0.9rem; font-size:0.28rem;  border-bottom: #e9e9e9 solid 1px; padding: 0 0.3rem;}
+.renwu_zhuangtai .titles samp[name="lanse"]{ color: #0069d5;}
+.renwu_zhuangtai .titles samp[name="lvse"]{ color: #009307;}
+.renwu_zhuangtai .titles samp[name="youce"]{ font-size: 0.24rem; color: #666666; padding-left: 0.3rem;}
+.renwu_zhuangtai .titles samp[name="lingqu"]{ display: block; float: right; font-size: 0.24rem; color: #ffffff; background:#ff6600; border-radius:0.5rem; width:1.5rem ; text-align: center; height: 0.5rem; line-height: 0.5rem; margin-top: 0.18rem;  }
+.renwu_zhuangtai .lists{ height: 0.4rem;line-height: 0.4rem; font-size:0.22rem; color: #969696;  padding: 0 0.3rem;}
+.renwu_zhuangtai .jiangli{ height: 1.05rem; line-height: 0.4rem;  color: #ff6600;  }
+.renwu_zhuangtai .jiangli li{  margin: 0 auto; text-align: center  ;}
+.renwu_zhuangtai .jiangli li[name="titles"]{ width: 1.7rem; height: 0.5rem; line-height: 0.5rem; font-size:0.24rem; background: url(../../assets/img/jiangli_io.png) 0 center no-repeat; background-size: auto 0.28rem;   }
+.renwu_zhuangtai .jiangli li[name="cons"]{  height: 0.5rem; font-size:0.3rem; }
+
+
+
+.renwu_tishi{ width: 100%; height: auto; overflow: hidden; font-size: 0.24rem; line-height: 0.4rem; color: #ffffff;  padding: 0.3rem; background: #ff6600 }
+.renwu_tishi .lists li {  width: 100%; float: left; height: auto;text-align: left;}
+//任务修改页
+.renwu_tishi .lists li{ line-height: 0.4rem;width: 100%}
+.renwu_tishi .lists .lists_li span{ display: block;float: left}
+.renwu_tishi .lists .lists_li .header{ width: 5%;height: auto;}
+.renwu_tishi .lists .lists_li .con{width: 70%;height: auto;}
+.renwu_tishi .lists .lists_li .bot{width: 23%;height: auto;text-align: center}
+
+.renwu_tishi .time{ color: #0069d5;}
+.renwu_tishi samp{ display: block; float: right; border: solid 1px #fff; border-radius: 0.3rem;  padding: 0.01rem 0.2rem; margin-right: 0.2rem;margin-top: 0.15rem }
+
+//.renwu_con_miaoshu .lists li[name="imgs"]
+.gonggong_tanchuang{ width:100%; height:100%; padding-top:1.5rem; position:fixed; z-index:11; top:0; bottom:0; background:#000000;    background: rgba(0, 0, 0, 0.6) ;   }
+.gonggong_tanchuang ul{ width:80%; height:auto; overflow:hidden; margin:0 auto; background:#FFFFFF; border-radius:5px; margin-top: 3rem }
+.gonggong_tanchuang ul li{ width:100%;  margin: 0; padding: 0; }
+.gonggong_tanchuang .titles{ width: 100%; height: 1.13rem; line-height: 1.13rem; background:url(../../assets/img/lingqujiangli.jpg) center 0 no-repeat; text-align:center; font-size: 0.4rem; color: #ffffff; font-weight: bold;}
+.gonggong_tanchuang .cons{ height: auto; padding: 0.3rem 0.8rem !important; font-size:0.35rem; line-height: 0.65rem; color: #ff6600; font-weight: 500;  }
+.gonggong_tanchuang .cons input[type="radio"] { width: 0.25rem; height: 0.25rem; margin-right: 0.1rem; }
+.gonggong_tanchuang .cons input[type="button"] { width: 2.1rem; height: 0.6rem; background: #ff6600; border-radius: 0.5rem; line-height: 0.6rem; margin-left: 1rem; margin-top: 0.1rem; color: #ffffff;  }
+.gonggong_tanchuang .guanbi{ width:40%; height:0.6rem;   margin:0 auto; margin-top: 0.4rem; text-align: center; background:url(../../assets/img/jiangli_guanbi.png) center center no-repeat; background-size:0.53rem 0.53rem;   z-index: 111 }
+.gonggong_tanchuang .jiangli_ok{ width:50%; height:auto; overflow:hidden; margin:0 auto; background:none !important;   }
+.gonggong_tanchuang .jiangli_ok img{ width: 100%; height: auto; margin-top: 2rem}
+
+.gonggong_tanchuang .xyz{ width: 90% !important; margin: 0.22rem auto !important; line-height: 0.4rem; font-size: 0.25rem;  }
+.gonggong_tanchuang .xyz samp{ color: #ff6600;}
+
+
+.gonggong_tanchuang .yangli{ width: 100% !important; height:auto; overflow:hidden; margin:0 auto !important;  background:none !important; border-radius:0 !important;  }
+.gonggong_tanchuang .yangli li{ width: 100% !important; height:auto; overflow:hidden; margin:0 auto !important;  background:none !important; border-radius:0 !important;  }
+
+.gonggong_tanchuang .yangli img{ width: 100%; height: 6rem;}
+.gonggong_tanchuang .yangli_num{ width:40%; height:0.6rem;   margin:0 auto; margin-bottom: 0.1rem; text-align: center; font-size: 0.3rem; color: #ffffff; background: none !important;    }

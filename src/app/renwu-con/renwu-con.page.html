@@ -1,0 +1,134 @@
+<script src="renwu-con.page.ts"></script>
+<ion-header>
+    <div class="yemei">
+        <ul name="baise">
+            <li class="fanhui" (click)="back()">
+                <i class="iconfont icon-back"></i>
+            </li>
+            <li class="names">任务详情</li>
+            <li class="right_title"></li>
+        </ul>
+    </div>
+</ion-header>
+
+<!--<ion-content id="tabsubject" >-->
+<ion-content id="tabsubject"  #container (ionScroll)="scrollHandler($event);" scroll-events="true" delegate-handle="mainScroll" on-scroll="abc()" >
+
+    <div class="gonggong_tanchuang" *ngIf="showBigImageState">
+        <ul class="yangli_num">{{big_img_ti+1}}/{{big_img_count}}</ul>
+        <ul class="yangli" (swipe)="swipeEvnet($event)" >
+            <!--
+           <img src="../../assets/img/ls.jpg" >
+           -->
+            <img [src]="big_img" >
+            <!--<ion-slides pager="true" [options]="slideOpts">-->
+            <!--<ion-slide *ngFor="let swiper_img of tasksListCon.tt_list[this.big_img_i].img_name ;index as img_i">-->
+            <!--<h1> <img [src]="big_img" ></h1>-->
+            <!--&lt;!&ndash;<h1> <img [src]="swiper_img" ></h1>&ndash;&gt;-->
+            <!--&lt;!&ndash;<h1> <img [src]="tasksListCon.tt_list[this.big_img_i].img_name[this.big_img_ti]" ></h1>&ndash;&gt;-->
+            <!--</ion-slide>-->
+            <!--</ion-slides>-->
+        </ul>
+        <ul class="guanbi" (click)="hideBigImage()"></ul>
+    </div>
+    <!--放大-->
+    <div class="renwu_con_jbqk">
+        <ul class="titles">
+            <li name="zhaopian"><img [src]="tasksListCon.top_img_name"></li>
+            <li name="names">{{tasksListCon.name}}</li>
+            <li name="jiangli">最多奖励<samp>￥{{tasksListCon.rmb_r_num}}元</samp></li>
+        </ul>
+        <ul class="f_titles">
+            <li>
+                <span class="header"><samp name="head">项目名称：</samp></span>
+                <span class="cont"><samp>{{tasksListCon.project}}</samp></span>
+            </li><br>
+            <li>
+                <span class="header"><samp name="head">项目介绍：</samp></span>
+                <span class="cont"><samp>{{tasksListCon.description}}</samp></span>
+            </li><br>
+            <li>
+                <span class="header"><samp name="head">项目地址：</samp></span>
+                <span class="cont"><samp>{{tasksListCon.address}}</samp></span>
+            </li><br>
+            <li>
+                <span class="header"><samp name="head">项目单位：</samp></span>
+                <span class="cont"><samp>{{tasksListCon.owner}}</samp></span>
+            </li><br>
+            <!--<samp>项目名称：</samp>{{tasksListCon.project}}<br>-->
+            <!--<samp>项目介绍：</samp>{{tasksListCon.description}}<br>-->
+            <!--<samp>项目地址：</samp>{{tasksListCon.address}}<br>-->
+            <!--<samp>项目单位：</samp>{{tasksListCon.owner}}<br>-->
+        </ul>
+    </div>
+<!--    <div id="myscroll"  class="search-box" #searchBox >-->
+    <div id="myscroll" class="renwu_dh"  #searchBox   style="transform: translate3d(0px,0px,0px) scale(1)">
+        <li class="on" [ngStyle]="{'backgroundColor': '#'+ renwu_con_color.renwu_bgcolor,'color': '#'+renwu_con_color.renwu_color}" (click)="renwu_con_qie(1)">任务说明</li>
+        <li class="out" [ngStyle]="{'backgroundColor': '#'+ renwu_con_color.xize_bgcolor,'color': '#'+renwu_con_color.xize_color}" (click)="renwu_con_qie(2)">酬劳细则</li>
+    </div>
+    <div class="renwu_con_miaoshu ling" *ngIf="renwu_con_status == 1; else elseBlock">
+        <ul class="titles_1">需要您前往施工现场拍照并上传。</ul>
+
+        <ul class="lists" *ngFor="let item of tasksListCon.tt_list; index as i;">
+            <!--<li name="titles-title" >{{i+1}}、</li>-->
+            <li name="titles">
+                <span class="titles-title" >{{i+1}}.</span>
+                <span class="titles_scription"><samp>{{item.name}}</samp></span>
+                <span *ngIf = "item.description != '0'"></span>
+            </li>
+            <li name="imgs" *ngIf = "item.is_gps != '1'">
+                <samp >
+                    <img [src]="item.img_name[0]" (click)="showBigImages(i,0)">
+                </samp>
+
+            </li>
+            <li name="titles-scription" *ngIf = "item.is_gps != '1'">{{item.description}}</li>
+        </ul>
+        <ul class="lists msg">
+            <!-- <li name="titles">6、<samp>上传项目</samp>现场地理位置</li> -->
+            <li name="beizhu">
+                注：<br>
+                a、图片中的文字要求清晰可见。<br>
+                b、24小时内（不包含非工作日）完成任务，如未完成将会<br>
+                24小时后自动释放。
+            </li>
+        </ul>
+        <ul class="lingqu fix" *ngIf="renwu_submit_status == 1" (click)="insertMyTasksCon(tasksListCon.id)">领取任务</ul>
+    </div>
+    <ng-template #elseBlock>
+
+        <div class="renwu_choulao"  ng-show="renwu_choulao">
+            <ul class="titles"><li>任务分项</li><li>奖励方案一</li><li>奖励方案二</li></ul>
+            <ul class="titles_list" *ngFor="let item of tasksListCon.tt_list; index as i;">
+                <li name="tit">{{i+1}}.</li>
+                <li>{{item.name}}</li>
+                <li name="jiangli"><samp>{{item.rmb_r}}</samp>元＋<samp>{{item.rmb_x}}</samp>信誉值</li>
+                <li name="jiangli"><samp>{{item.dhb_r}}</samp>导航币＋<samp>{{item.dhb_x}}</samp>信誉值</li>
+            </ul>
+            <ul class="ftitles"><li name="titles">最多</li><li>{{tasksListCon.rmb_r_num}}元＋{{tasksListCon.rmb_x_num}}信誉值</li><li>{{tasksListCon.dhb_r_num}}导航币＋{{tasksListCon.dhb_x_num}}信誉值</li></ul>
+            <ul class="content">
+                <li name="titles"><samp>!</samp> 第{{tasksListCon.key_items}}项审核均未通过，其余项视为无效</li>
+                <li name="miaoshu"><samp>导航币有什么用？</samp><br> 导航币可在换购导航网信息服务、广告服务时享受折扣优惠</li>
+            </ul>
+            <ul class="content no_bian">
+                <li name="miaoshu"><samp>信誉值是什么？</samp><br>
+                    信誉值是用户对导航网的贡献值:<br>
+                    》信誉值越高，可领取任务越多:<br>
+                    <samp name="hui">
+                        信誉值区间      进行中任务项数<br>
+                        0-19               最多一项（任务完成后可继续领取）<br>
+                        20-39             最多两项<br>
+                        40-59             最多三项<br>
+                        60-79             最多六项<br>
+                        80以上            最多十项<br>
+                    </samp>
+                    》信誉值大于100，可选择其他城市任务<br>
+                    》导航网将按信誉值大小优先向业主推荐<br>
+                    》另外还有机会获得惊喜礼包，获邀参加导航网的福利旅游、公司年会等老会员回馈活动。
+                </li>
+            </ul>
+
+            <ul class="lingqu" *ngIf="renwu_submit_status == 1" (click)="insertMyTasksCon(tasksListCon.id)">领取任务</ul>
+        </div>
+    </ng-template>
+</ion-content>

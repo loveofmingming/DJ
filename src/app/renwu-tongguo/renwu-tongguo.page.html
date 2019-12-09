@@ -1,0 +1,126 @@
+<ion-header>
+    <div class="yemei">
+        <ul name="baise">
+            <!-- <li class="fanhui" [routerLink]="['/index']">< 返回</li> -->
+            <li class="fanhui"  (click)="back()">
+                <i class="iconfont icon-back"></i>
+            </li>
+            <li class="names">任务详情</li>
+            <!-- <li class="right_title" [routerLink]="['/renwu-con',tid,2]">任务说明</li> -->
+        </ul>
+      </div>
+  </ion-header>
+
+  <ion-content>
+      <div class="gonggong_tanchuang" *ngIf="showBigImageState">
+          <ul class="yangli_num">{{big_img_ti+1}}/{{big_img_count}}</ul>
+          <ul class="yangli" (swipe)="swipeEvnet($event)">
+              <!--
+             <img src="../../assets/img/ls.jpg" >
+             -->
+              <img [src]="big_img">
+              <!--<ion-slides pager="true" [options]="slideOpts">-->
+                  <!--<ion-slide *ngFor="let swiper_img of tasksListCon.mytask.my_tt_list[this.big_img_i].img_name ;index as img_i">-->
+                      <!--<h1> <img [src]="big_img" ></h1>-->
+                  <!--</ion-slide>-->
+              <!--</ion-slides>-->
+          </ul>
+          <ul class="guanbi" (click)="hideBigImage()"></ul>
+      </div>
+
+    <div class="gonggong_tanchuang" id="gengduo_service" *ngIf="jiangli.isshow">
+        <ul>
+          <li class="titles">领取奖励</li>
+          <li class="cons">
+            <input type="radio" name="JlBiga" checked="checked"  [(ngModel)]="JlBig" value="rmb">{{jiangli.rmb_r_num}}元+{{jiangli.rmb_x_num}}信誉值<br>
+            <input type="radio" name="JlBiga"  [(ngModel)]="JlBig"  value="dhb">{{jiangli.dhb_r_num}}导航币+{{jiangli.dhb_x_num}}信誉值<br>
+            <input type="button" value="领取" (click)="lingQuJiangLiSub()">
+          </li>
+        </ul>
+        <ul class="guanbi" (click)="guanbi()"></ul>
+    </div>
+
+    
+    <div class="gonggong_tanchuang" *ngIf="jiangli.isshow_ok">
+        <ul class="jiangli_ok"><img src="../../assets/img/jiangli_ok.png"></ul>
+        <!--<ul class="guanbi" (click)="guanbi_tiaozhuan()"></ul>-->
+    </div>
+
+    
+
+    <div class="renwu_con_jbqk no_bian">
+        <ul class="titles">
+          <li name="zhaopian"><img [src]="tasksListCon.task.top_img_name"></li>
+          <li name="names">{{tasksListCon.task?.name}}</li>
+          <li name="jiangli"></li>
+        </ul>
+        <ul class="f_titles">
+            <li>
+                <span class="header"><samp>项目名称：</samp></span>
+                <span class="cont"><samp>{{tasksListCon.task?.name}}</samp></span>
+            </li><br>
+            <li>
+                <span class="header"><samp>项目介绍：</samp></span>
+                <span class="cont"><samp>{{tasksListCon.task?.description}}</samp></span>
+            </li><br>
+            <li>
+                <span class="header"><samp>项目地址：</samp></span>
+                <span class="cont"><samp>{{tasksListCon.task?.address}}</samp></span>
+            </li><br>
+            <li>
+                <span class="header"><samp>项目单位：</samp></span>
+                <span class="cont"><samp>{{tasksListCon.task?.owner}}</samp></span>
+            </li><br>
+            <!--<samp>项目名称：</samp>{{tasksListCon.task?.name}}<br>-->
+            <!--<samp>项目介绍：</samp>{{tasksListCon.task?.description}}<br>-->
+            <!--<samp>项目地址：</samp>{{tasksListCon.task?.address}}<br>-->
+            <!--<samp>项目单位：</samp>{{tasksListCon.task?.owner}}<br> -->
+        </ul>
+    </div>
+
+
+    <div class="renwu_zhuangtai">
+      <ul class="jianju"></ul>
+
+      <ul class="titles">状态:<samp name="lvse">审核通过</samp> <samp name="lingqu"  (click)="lingQuJiangLi()">{{showWord}}</samp></ul>
+      <!--<ul class="titles" *ngIf="isshow == 1 ">状态:<samp name="lvse">审核通过</samp> <samp name="lingqu"  (click)="lingQuJiangLi()">已获奖励</samp></ul>-->
+      <ul class="lists" *ngFor="let item_vv of tasksListCon.mytask?.action_records; index as i_v;" >
+          <samp *ngIf="item_vv.action==1">任务领取时间：{{item_vv.created}}</samp>
+          <samp *ngIf="item_vv.action==2">任务提交时间：{{item_vv.created}}</samp>
+          <!--<samp *ngIf="item_vv.action==3">审核反馈时间：{{item_vv.created}}（{{item_vv.reason_rejected}}）</samp>-->
+          <samp *ngIf="item_vv.action==3">审核反馈时间：{{item_vv.created}}</samp>
+          <samp *ngIf="item_vv.action==9">审核通过时间：{{item_vv.created}}</samp>
+          <samp *ngIf="item_vv.action==11">奖励领取时间：{{item_vv.created}}</samp>
+          <samp *ngIf="item_vv.action==10">任务已过期</samp>
+      </ul>
+
+    </div>
+      
+    <div class="renwu_con_miaoshu pass">
+      <ul class="jianju"></ul>    
+      <ul class="titles_2">提交内容：</ul>
+      <ul class="lists" *ngFor="let item of tasksListCon.mytask?.my_tt_list; index as i;">
+          <li name="titles">
+              <span class="header">{{i+1}}.</span>
+              <span class="con_pass"><samp>{{item.name}}</samp></span>
+              <span class="bot_pass">
+                <a *ngIf="item.my_task_items?.state==0" name="tishi_lvse">（未审核）</a>
+                <a *ngIf="item.my_task_items?.state==1" name="tishi_lvse">（审核通过）</a>
+                <a *ngIf="item.my_task_items?.state==2" name="tishi_hongse">（未通过，{{item.my_task_items.reason_rejected}}）</a>
+                <a *ngIf="item.my_task_items?.state==3" name="tishi_hongse">（放弃）</a>
+               </span>
+          </li>
+          <li name="titles" id="object" *ngIf="item.is_gps==1"><samp>{{tasksListCon.mytask?.address}}</samp></li>
+          <li name="imgs" *ngIf="item.is_gps!=1">
+              <samp *ngFor="let item_v of item.img_name; index as ti;">
+                  <img [src] = "img_url+'/'+item_v.img_name" (click)="showBigImages(i,ti,0)">
+              </samp>
+
+          </li> 
+      </ul>
+      <!--<ul class="lists no_bian">
+        <li name="titles">6、保定市河大路36号 <a name="tishi_lvse">（审核通过）</a></li>
+      </ul>-->
+    </div>
+  </ion-content>
+  

@@ -1,0 +1,13 @@
+export class ConfigModel {
+  // 测试环境URL
+  // static BASE_URL='http://192.168.7.135:5352/houtai/API';
+  static BASE_URL = 'http://crowd.okcis.cn/houtai/API';
+  
+  static BASE_IMG_URL='http://192.168.7.101:9900/test_img';
+
+  static BASE_APP_ID = 'wx8122740043c411ce';
+
+  static BASE_APP_SECRET = 'e409a397341bc8e3a86798f4f5758517';
+
+  static test = "123";
+}

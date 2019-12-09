@@ -1,0 +1,54 @@
+@import "../../style/common.scss";
+@import "../../style/tou_wei.scss";
+@import "../../style/renwu_con.scss";
+.gongsi{
+  background-color: red;
+  color: red;
+}
+//fangqi tankuang
+.alert-sub-title.sc-ion-alert-md, .alert-title.sc-ion-alert-md {
+  color: var(--ion-text-color,#000000);
+}
+.alert-head.sc-ion-alert-md {
+  text-align: center;
+}
+
+.position{
+  padding-left: 0.2rem;
+  padding-top: 0.2rem;
+}
+.position .xiugai{
+  color: blue;
+}
+.again{
+  color: blue;
+  display: inline-block;
+
+}
+.position .pop{
+  white-space: nowrap;
+}
+.again{
+  padding-left: 0.2rem;
+  color: blue;
+}
+.hydrated {
+  visibility: inherit;
+  font-size: 0.24rem;
+}
+.checkbox-icon {
+  border-radius: var(--border-radius);
+  display: block;
+  position: relative;
+  width: 90%;
+  height: 90%;
+  //-webkit-transition: var(--transition);
+  transition: var(--transition);
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: var(--border-color);
+  background: var(--background);
+  contain: strict;
+  //-webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

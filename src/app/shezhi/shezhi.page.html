@@ -1,0 +1,44 @@
+<ion-header>
+  <div class="yemei">
+      <ul name="baise">
+          <li class="fanhui" [routerLink]="['/default/wode']">
+            <i class="iconfont icon-back"></i>
+          </li>
+          <li class="names">设置</li>
+          <li class="right_title"></li>
+      </ul>
+    </div>
+</ion-header>
+
+<ion-content>
+  <div class="bg_body">
+    <div class="shezhi_body">
+      <ul>
+        <li class="name">登录账号</li>
+        <!-- <li class="vals">136****2590</li> -->
+        <li class="vals">{{mobile}}</li>
+      </ul>
+      <ul *ngIf="wx_user_info; else elseBlock">
+        <li class="name">绑定微信<samp>{{wx_user_info.nickname}}</samp></li>
+        <li class="vals"><samp>已绑定</samp></li>
+      </ul>
+      <ng-template #elseBlock>
+      <ul>
+        <li class="name">绑定微信</li>
+        <li class="vals" (click)="bangdingweixin()"><samp>去绑定 ></samp></li>
+      </ul> 
+      </ng-template>
+      <!-- <ul>
+          <li class="name">绑定手机号</li>
+          <li class="vals" [routerLink]="['/bangdingshouji']"><samp>去绑定 ></samp></li>
+      </ul>      -->
+    </div>
+
+    <div class="tuichuLogin">
+      <ul>
+        <li (click)="tuichuLogin()">退出</li>
+      </ul>
+    </div>
+  </div>
+
+</ion-content>

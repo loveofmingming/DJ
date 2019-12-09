@@ -1,0 +1,64 @@
+<ion-header>
+  <div class="yemei">
+    <ul name="chengse">
+        <li class="fanhui" (click)="back()" >
+            <i class="iconfont icon-back"></i>
+        </li>
+        <li class="names">消息</li>
+        <li class="right_title"></li>
+    </ul>
+  </div>
+</ion-header>
+<!--<ion-content>-->
+  <!--<div class="xiaoxi_list" *ngFor="let item of myxiaoxiList; index as i;">-->
+    <!--<ul>-->
+      <!--<li class="lefts" *ngIf="item.type == 0 "><img src="../../assets/img/xiaoxi_io_1.png"></li>-->
+      <!--<li class="lefts" *ngIf="item.type == 1 "><img src="../../assets/img/xiaoxi_io_2.png"></li>-->
+      <!--<li class="rights"> -->
+        <!--<div class="xiaoxi_con">-->
+          <!--<ul class="titles">-->
+            <!--<li name="titles" *ngIf="item.type == 0">任务消息</li>-->
+            <!--<li name="titles" *ngIf="item.type == 1">奖励消息奖励消息奖息</li>-->
+            <!--<li name="new"  *ngIf="item.read == 0">now</li>-->
+            <!--<li name="riqi">{{item.created}}</li>-->
+          <!--</ul>-->
+          <!--<ul class="miaoshu">-->
+              <!--{{item.content}}<br>-->
+              <!--<samp *ngIf="item.my_task_id != '' "  (click)="open_renwu_wc(item.link,item.task_id,item.my_task_id,item.read,item.id)" >查看详情</samp>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+<!--</ion-content>-->
+<ion-content>
+
+    <div class="xiaoxi_con" *ngIf ="myxiaoxiList == [] ;else elseXiaoxi">
+        <img class="noxiaoxi" src="../../assets/img/xiaoxi.jpg" alt="">
+    </div>
+
+    <ng-template #elseXiaoxi>
+    <div class="xiaoxi_list"  *ngFor="let item of myxiaoxiList; index as i;">
+        <ul>
+            <li class="lefts" *ngIf="item.type == 0 "><img src="../../assets/img/xiaoxi_io_1.png"></li>
+            <li class="lefts" *ngIf="item.type == 1 "><img src="../../assets/img/xiaoxi_io_2.png"></li>
+            <li class="rights">
+                <div class="xiaoxi_con">
+                    <ul class="titles">
+                        <li name="titles" *ngIf="item.type == 0">任务消息</li>
+                        <li name="titles" *ngIf="item.type == 1">奖励消息</li>
+                        <li name="new" *ngIf="item.read == '0'" >new</li>
+                        <li name="riqi">{{item.created}}</li>
+                    </ul>
+                    <ul class="miaoshu">
+                        {{item.content}}<br>
+<!--                        {{item.notification}}<br>-->
+                        <!--<samp   (click)="open_renwu_wc(item.link,item.task_id,item.my_task_id,item.read,item.id)" >查看详情</samp>-->
+                        <samp  [ngClass]="read_msg" (click)="open_renwu_jxz(item.link,item.my_task_id,item.task_id,item.read,item.id)" >查看详情</samp>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </ng-template>
+</ion-content>

@@ -1,0 +1,64 @@
+.wode_toubu{ width: 100%; height: 2.35rem; margin: 0 auto; background: #ff6600;}
+.wode_toubu ul{ margin: 0 0.4rem; padding-top: 0.5rem; height: 1.4rem;  }
+.wode_toubu ul li{ height: 1.4rem;}
+.wode_toubu .names{ width: 3rem; float: left; line-height: 1.4rem; font-size: 0.37rem; color: #ffffff; font-weight: 600;}
+.wode_toubu .touxiang{ width: 1.4rem; height: 1.4rem; float:right; }
+.wode_toubu .touxiang img{ width: 100%; height: 100%; border-radius: 0.7rem;}
+
+.wode_f_title{ width: 100%; height: 2.4rem; background: #ffffff; padding-top: 0.33rem;}
+.wode_f_title ul{ padding: 0 0.4rem;  height: 0.5rem;}
+.wode_f_title ul li{ width: 33%; height:0.6rem; line-height: 0.6rem; float: left; text-align: center;}
+.wode_f_title .titles{ font-size: 0.25rem; color: #666666; }
+.wode_f_title .nums{ font-size: 0.35rem; color: #333333; }
+.wode_f_title .anniu{ font-size: 0.25rem; color: #ff6600;  }
+.wode_f_title .anniu samp{ padding: 0.05rem 0.2rem; border-radius: 0.5rem; border: #ff6600 solid 1px;}
+.wode_f_title .anniu a{ color: #0069d5;}
+
+.wode_list{ width: 100%; height: auto; background:#ffffff; margin-top: 0.2rem;}
+.wode_list ul{ padding: 0 0.4rem; height: 1.08rem; border-bottom:#ececec solid 1px; }
+.wode_list ul li{ float: left; background-size: auto 0.35rem; height: 0.35rem; margin-top:0.35rem; }
+.wode_list .io_1{ width: 0.5rem; background: url(../../assets/img/wode_io_1.png) 0 0 no-repeat; } 
+.wode_list .io_2{ width: 0.5rem; background: url(../../assets/img/wode_io_2.png) 0 0 no-repeat;} 
+.wode_list .io_3{ width: 0.5rem; background: url(../../assets/img/wode_io_3.png) 0 0 no-repeat;}  
+.wode_list .titles{ width: 4rem; font-size:0.29rem; color: #666666; }
+.wode_list .gengduo{ width: 0.5rem; font-weight: 600; float: right !important; font-size:0.29rem; color: #666666; text-align: right}
+
+
+.huobi_tou{ width: 100%; height: auto; overflow: hidden; background: #ff6600; color: #ffffff; padding-bottom: 0.3rem; }
+.huobi_tou .titles{ width: 100%; height: 0.8rem; text-align:center;  line-height: 0.8rem; font-size: 0.25rem;}
+.huobi_tou .huobizhi{ width: 100%; height: 1rem; text-align:center;  line-height: 0.8rem; font-size: 0.25rem;}
+.huobi_tou .huobizhi samp{ font-size: 0.61rem;}
+.huobi_tou .cons{ width: 100%; height:auto; text-align:left;  line-height: 0.4rem; padding:0 0.3rem; font-size: 0.24rem;}
+.huobi_tou .anniu{ width: 1.6rem; border-radius:0.7rem; height: 0.5rem; border:solid #ffffff 1px; margin: 0 auto; font-size:0.25rem; line-height: 0.5rem; text-align:center;    }
+.huobi_tou .xyz_con{ width: 100%; height:auto; text-align:right;  line-height: 0.4rem; padding:0 0.3rem; font-size: 0.25rem;}
+
+.huobi_big{ width: 100%; height: 1rem; background: #ffffff;}
+.huobi_big ul li{ height: 1rem; width: 49%; text-align: center; color: #ff6600;  font-size:0.31rem; line-height: 1rem; }
+.huobi_big .zhuanru{ float: left;  }
+.huobi_big .zhuanchu{ float: right; }
+.huobi_big .bian{ border: #ffceae solid 1px;}
+
+.huobi_title{ width: 100%; height: 1rem; padding-top: 0.3rem; background: #ffffff; border-bottom:#e9e9e9 solid 1px;}
+.huobi_title ul{ margin: 0 0.3rem; line-height: 0.3rem; padding-left: 0.2rem;  height: 0.32rem; font-size: 0.31rem; color: #000; border-left: #ff6600 solid 0.1rem;}
+
+.huobi_list{ width: 100%; height: auto; overflow: hidden; margin-top: 0.2rem; background: #ffffff;}
+.huobi_list ul{ height: 1.3rem; padding: 0.2rem 0.35rem; border-bottom:#e9e9e9 solid 1px;}
+.huobi_list ul li{ width: 100%; margin: 0 auto;height: 0.5rem; line-height: 0.5rem; }
+.huobi_list ul li[name="titles"] {  font-size:0.25rem; color: #333333;  }
+.huobi_list ul li[name="titles"] span{  display: block;float: left;width: 80%;height: 0.5rem;line-height: 0.5rem;text-overflow: ellipsis;white-space: nowrap;overflow: hidden; }
+.huobi_list ul li[name="titles"] samp{ display: block; float: right; color: #ff6600;} 
+.huobi_list ul li[name="miaoshu"] { font-size:0.25rem; color: #969696;  }
+.huobi_list ul li[name="miaoshu"] span{ display: block;float: left;width: 50%;height: 0.5rem;line-height: 0.5rem;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.huobi_list ul li[name="miaoshu"] samp{ display: block; float: right; font-size: 0.22rem}
+
+.huobi_list .nomsg{
+  width: 100%; height: auto;
+}
+.huobi_list .nomsg li{
+  width: 100%;
+  height: 545px;
+}
+.huobi_list .nomsg li img{
+  width: 100%;
+  height: 100%;
+}

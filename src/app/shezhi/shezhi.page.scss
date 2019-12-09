@@ -1,0 +1,12 @@
+@import "../../style/common.scss";
+@import "../../style/tou_wei.scss";
+
+.shezhi_body{ height: auto; overflow: hidden; background: #f9f9f9; }
+.shezhi_body ul{ height: 1rem; padding: 0 0.3rem; border-bottom:#e9e9e9 solid 1px;  line-height: 1rem; font-size: 0.28rem;  }
+.shezhi_body ul li{ line-height: 1rem;}
+
+.shezhi_body .name{ width: 65%;   float: left;}
+.shezhi_body .name samp{ color: #0069d5; padding-left: 0.2rem;}
+.shezhi_body .vals{ width: 35%;   float: right; text-align:right; color: #333333; }
+.shezhi_body .vals samp{ color: #969696; }
+.tuichuLogin{ width:90%;font-size:0.28rem;text-align:center;height:1rem;line-height:1rem;background: #ff6600;position:fixed;bottom:0;border-radius: 0.1rem ;margin: 0 0.4rem 0.35rem 0.35rem ;color: white}

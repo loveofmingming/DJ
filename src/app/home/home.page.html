@@ -1,0 +1,52 @@
+<ion-content>
+        <div class="container">
+            <div class="login">
+            <ul class="titles">登录</ul>
+            <ul class="inputs">
+                <li class="names">手机号</li>
+                <li class="inputs_sjh">
+                    <input  type="text" type="search" value="value" class="phone" placeholder="请输入手机号"  autocomplete="on" [(ngModel)]="sjName">
+                </li>
+                <li class="huoqu">
+                    <samp>
+                        <button ion-button full  (click)="getYanzheng()" [disabled]="!mobileCode.disable"  >{{mobileCode.name}}</button>
+                        <!--<button ion-button full  (click)="getYanzheng()" [disabled]="!mobileCode.disable"  > {{computeTime>0 ? `已发送(${computeTime}s)` : '获取验证码'}}</button>-->
+                    </samp>
+                </li>
+            </ul>
+            <ul class="inputs">
+                <li class="names">验证码</li>
+                <li class="inputs_sjh">
+                    <input type="text"  class="yzm" placeholder="请输入验证码" [(ngModel)]="yzmName">
+                </li>
+            </ul>
+            <ul class="denglu">
+                <button ion-button full  (click)="login();" [disabled]="!logoCode.disable" >{{logoCode.name}}</button>
+            </ul>
+            <!--<app-listscroll>-->
+            <!--<li class="item" *ngFor="let item of list; let num = index;">第{{num}}个</li>-->
+            <!--</app-listscroll>-->
+            <div class="login_bottom">
+                    <ul class="names" >
+                        <!--            -->
+                        <!--            <span class="agreement">《斗金使用协议和隐私政策》</span>-->
+
+                        <li class="agreement">
+                            <!--                <label class="checkbox">-->
+                            <!--                    <input type="checkbox" checked="">-->
+                            <!--                </label>-->
+                            <span>登录即代表您已经同意</span><br>
+                            <span (click)="open_xiaoxi()" class="pact">《隐私协议》</span>和<span class="pact" (click)="open_permission()">《软件许可协议》</span></li>
+                    </ul>
+                </div>
+        </div>
+
+        </div>
+
+<!--  <div class="login_bottom">-->
+<!--    <ul class="names">微信登录</ul>-->
+<!--    <ul class="io" (click)="weChatAuth()"><img src="./assets/img/wx_io.png" /></ul>-->
+<!--  </div>-->
+
+</ion-content>
+  

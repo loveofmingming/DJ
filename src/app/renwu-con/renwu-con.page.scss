@@ -1,0 +1,18 @@
+@import "../../style/common.scss";
+@import "../../style/tou_wei.scss";
+@import "../../style/renwu_con.scss";
+
+.wrapper{
+  width: 100%;  // 宽度无所谓了
+  height: 100%; // 父容器的高度必须固定
+  position: relative;
+  display: block;
+  overflow: hidden;
+  .scroll {
+    display: block;
+    position: relative;
+    width: 100%; // 宽度无所谓
+    height: calc(100% + 1px); // 子容器的高度必须必父容器高，切记，官网有解析原因
+  }
+}
+

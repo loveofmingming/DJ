@@ -1,0 +1,25 @@
+@import "../../style/common.scss";
+@import "../../style/tou_wei.scss";
+
+.xiaoxi_list{ width: 100%; height: auto; overflow: hidden; min-height: 1.85rem; border-bottom: #e9e9e9 solid 1px;}
+.xiaoxi_list ul{ margin:0.3rem 0.35rem;   font-size: 0.2rem}
+.xiaoxi_list ul li{ float: left;  }
+.xiaoxi_list .lefts{ width: 1rem; height: 1rem;}
+.xiaoxi_list .lefts img{ width: 0.85rem; height: 0.85rem;}
+
+.xiaoxi_list .rights{ width: 5.4rem; height: auto;  overflow: hidden; margin-bottom: 0.3rem; float: right !important;}
+
+.xiaoxi_con{ width: 100%; height: auto; margin: 0; padding: 0;  }
+.xiaoxi_con ul{ width: 100%; margin: 0; padding: 0;}
+.xiaoxi_con .titles{ height: 0.45rem; }
+.xiaoxi_con .titles li{ float: left; height: 0.45rem;  }
+.xiaoxi_con .titles li[name="titles"]{ width: auto; padding-right: 0.2rem; font-size: 0.28rem; color: #333333; }
+.xiaoxi_con .titles li[name="new"]{ width: 0.6rem; height: 0.26rem; text-align: center;margin-top: 0.07rem;  line-height: 0.2rem; border: #ff0000 solid 1px; border-radius: 0.05rem; color: #ff0000; }
+.xiaoxi_con .titles li[name="riqi"]{ width: 1.5rem ; float: right; text-align: right; font-size: 0.24rem; color: #969696; line-height: 0.4rem;}
+.xiaoxi_con .miaoshu{ min-height: 0.45rem; line-height: 0.4rem; color: #969696; font-size: 0.24rem }
+.xiaoxi_con .miaoshu .read{ color: #ff6600;}
+.xiaoxi_con .miaoshu .readed{ color: #969696;}
+
+.xiaoxi_con .noxiaoxi{
+  margin-top: 20%;
+}

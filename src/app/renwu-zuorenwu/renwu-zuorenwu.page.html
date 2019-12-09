@@ -1,0 +1,129 @@
+<ion-header>
+  <div class="yemei">
+      <ul name="baise">
+          <li class="fanhui" (click)="back()">
+              <i class="iconfont icon-back"></i>
+          </li>
+          <li class="names">做任务</li>
+          <!-- <li class="right_title" [routerLink]="['/renwu-con',tid,2]">任务说明</li> -->
+          <li class="right_title" (click)="open_con(tid,2)">任务说明</li>
+      </ul>
+    </div>
+</ion-header>
+
+<ion-content>
+  <!--
+    <div *ngIf="false" style="position: fixed;top: 0;left: 0;z-index: 10; width: 100%;height: 100%;" (click)="hideBigImage()" (swipe)="swipeEvnet($event)">
+        <img  style="position: absolute;top: 10%;left: 50%;z-index: 10;display: block;margin-top: 18px;
+         margin-left: -165px;height: 420px;width: 330px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);" [src]="big_img"/>
+    </div>
+-->
+    <!--放大-->
+    <div class="gonggong_tanchuang" *ngIf="showBigImageState">
+      <ul class="yangli_num">{{big_img_ti+1}}/{{big_img_count}}</ul>
+      <ul class="yangli" (swipe)="swipeEvnet($event)">
+        <!--
+       <img src="../../assets/img/ls.jpg" >
+       -->
+       <img [src]="big_img" >
+          <!--<ion-slides pager="true" [options]="slideOpts">-->
+              <!--<ion-slide *ngFor="let swiper_img of tasksListCon.tt_list[this.big_img_i].img_name ;index as img_i">-->
+                  <!--<h1> <img [src]="big_img" ></h1>-->
+              <!--</ion-slide>-->
+          <!--</ion-slides>-->
+      </ul>
+      <ul class="guanbi" (click)="hideBigImage()"></ul>
+    </div>
+   <!--放大-->
+
+  <div class="renwu_con_jbqk">
+      <ul class="titles">
+        <li name="zhaopian"><img [src]="tasksListCon.top_img_name"></li>
+        <li name="names">{{tasksListCon.name}}</li>
+        <li name="jiangli">最多奖励<samp>￥100元</samp></li>
+      </ul>
+      <ul class="f_titles">
+          <li>
+              <span class="header"><samp name="head">项目名称：</samp></span>
+              <span class="cont"><samp>{{tasksListCon.project}}</samp></span>
+          </li><br>
+          <li>
+              <span class="header"><samp name="head">项目介绍：</samp></span>
+              <span class="cont"><samp>{{tasksListCon.description}}</samp></span>
+          </li><br>
+          <li>
+              <span class="header"><samp name="head">项目地址：</samp></span>
+              <span class="cont"><samp>{{tasksListCon.address}}</samp></span>
+          </li><br>
+          <li>
+              <span class="header"><samp name="head">项目单位：</samp></span>
+              <span class="cont"><samp>{{tasksListCon.owner}}</samp></span>
+          </li><br>
+          <!--<samp>项目名称：</samp>{{tasksListCon.project}}<br>-->
+          <!--<samp>项目介绍：</samp>{{tasksListCon.description}}<br>-->
+          <!--<samp>项目地址：</samp>{{tasksListCon.address}}<br>-->
+          <!--<samp>项目单位：</samp>{{tasksListCon.owner}}<br> -->
+      </ul>
+  </div>
+    
+  <div class="renwu_con_miaoshu">    
+    <ul class="lists" *ngFor="let item of tasksListCon.tt_list; index as i;" >
+        <li name="titles" >
+            <span class="header" >{{i+1}}.</span>
+            <span class="con"><samp>{{item.name}}</samp></span>
+            <span class="bot"><a *ngIf="item.is_gps != '1'" (click)="yangliImgOne(i)">查看样例</a></span>
+        </li>
+        <li name="imgs" class="add_left" *ngIf="item.is_gps != '1'; else elseBlock">
+          <span *ngFor="let tasksListConTtlist of item.img_srcs; index as ti;">
+            <td *ngIf="tasksListConTtlist.dis != '1'" (click)="deleteImgOne(i,ti)">×</td>
+            <img name="add"  (click)="showPaizhaoOrxc(i,ti)" [src] = "tasksListConTtlist.img_src"  >
+          </span>
+
+          <samp *ngFor="let tasksListConTtlistF of item.img_fangqi_srcs; index as fi">
+              <img  name="fangqi" id="btn" [src] = "tasksListConTtlistF.img_fangqi_src "  (click)="gongcheng_img_fangqi(i);" >
+          </samp>
+
+
+        </li>
+        <ng-template #elseBlock>
+              <li name="anniu" >
+                <samp (click)="onGpsTo()">我在现场</samp>
+                <!--<samp (click)="open_dizhi_list()">不在现场</samp>-->
+                <samp (click)="open_search()">手动输入</samp>
+              </li>
+              <!--<ng-template #elseDizhi>-->
+                <!--<li class="position" *ngIf="gps_address">-->
+                    <!--<span class="pop" (click)="open_position()">-->
+                    <!--<i class="iconfont icon-dingwei" ></i>-->
+                    <!--{{action}}-->
+                    <!--</span>-->
+                    <!--&lt;!&ndash;<span class="xiugai" (click)="open_search()">修改地址</span>&ndash;&gt;-->
+                <!--</li>-->
+              <!--&lt;!&ndash;<li  class="again" *ngIf="gps_address =='' && action !=''" (click)="onGpsTo()">添加地址为当前定位位置？</li>&ndash;&gt;-->
+              <!--</ng-template>-->
+            <!--<ng-template #elseDizhi>-->
+              <li name="dizhi_list" *ngIf="dizhi_type== '1'; else elseDizhi">
+                  <span name="Fruit" class="Fruit"  *ngIf="action" (click)="open_position()" >
+                      <i class="iconfont icon-dingwei" ></i>{{action}}<samp>></samp> </span> <br>
+                <!--<samp >（请确保地址正确，建议在项目现场上传采集到的照片）</samp>-->
+              </li>
+            <!--</ng-template>-->
+            <!--不在现场地址值列表-->
+            <ng-template #elseDizhi>
+            <li class="real_dizhi_list" >
+                <ion-list>
+                    <ion-item *ngFor="let entry of form">
+                        <ion-label>{{entry.val}}</ion-label>
+                        <ion-checkbox slot="end" color="light" [(ngModel)]="entry.isChecked"></ion-checkbox>
+                    </ion-item>
+                </ion-list>
+            </li>
+            </ng-template>
+        </ng-template>
+
+
+    </ul>
+     <!--<ul [ngClass]="lingqu_no">提交</ul>  -->
+    <ul [ngClass]="lingqu_class" (click)="photo_submit()" >提交</ul> 
+  </div>
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-header>
+  <div class="yemei">
+      <ul name="chengse">
+          <li class="fanhui" [routerLink]="['/default/wode']">
+              <i class="iconfont icon-back"></i>
+          </li>
+          <li class="names">导航币</li>
+          <li class="right_title"></li>
+      </ul>
+    </div>
+</ion-header>
+
+<ion-content>
+  <div class="bg_body">
+      <div class="huobi_tou">
+        <ul class="titles">当前</ul>
+        <ul class="huobizhi"><samp>{{daohangbiYue}}</samp>导航币</ul>
+        <ul class="cons">导航币可在换购导航网信息服务、广告服务时享受折扣优惠。<br>详情请咨询您的客服专员。400-800-0000</ul>
+      </div>
+      <div class="huobi_big">
+          <ul *ngIf="daohangbiType == 'zhuanru'; else elsexiaojinkuType">
+              <li class="zhuanru bian" (click)="getAllDaohangbiZhuanRu()">转入</li>
+              <li class="zhuanchu" (click)="getAllDaohangbiZhuanChu()">转出</li>
+          </ul>
+          <ng-template #elsexiaojinkuType>
+              <ul>
+                  <li class="zhuanru" (click)="getAllDaohangbiZhuanRu()">转入</li>
+                  <li class="zhuanchu bian" (click)="getAllDaohangbiZhuanChu()">转出</li>
+              </ul>
+          </ng-template>
+      </div>
+      <div class="huobi_list" *ngIf="shouruList == '1'; else elseBlock">
+            <ul>
+                <li name="titles" *ngIf="daohangbiType == 'zhuanru'; else elsedaohangbiType">还没有收入记录～</li>
+                <ng-template #elsedaohangbiType>
+                    <li name="titles">还没有转出记录～</li>
+                </ng-template>
+            </ul>
+      </div>
+      <ng-template #elseBlock>
+            <div class="huobi_list">
+                    <ul *ngFor = " let shouruList of shouruList; index as i;">
+                      <li name="titles"  >
+                          <span >{{shouruList.title}}</span>
+                          <samp *ngIf="daohangbiType == 'zhuanru'; else elsexiaojinkuType">+{{shouruList.money}}</samp>
+                          <ng-template #elsexiaojinkuType>
+                              <samp >-{{shouruList.money}}</samp>
+                              <!--<ng-template #elsewujilu>-->
+                                  <!--<samp >还没有转出记录～</samp>-->
+                              <!--</ng-template>-->
+                          </ng-template>
+                      </li>
+                      <li name="miaoshu"  >
+                          <span >{{shouruList.miaoshu}}</span>
+                          <samp>{{shouruList.jointime}}</samp>
+                      </li>
+                    </ul>
+                  </div>
+      </ng-template>
+  </div>
+  
+
+</ion-content>

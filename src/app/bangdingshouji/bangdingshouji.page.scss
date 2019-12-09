@@ -1,0 +1,12 @@
+@import "../../style/common.scss";
+@import "../../style/tou_wei.scss";
+
+.bdsj{ margin-left: 0.4rem; margin-right: 0.4rem; height: 8.5rem;   }
+.bdsj .titles{ width:100%; height:1.8rem; text-align:left; padding-top:1rem;  margin: 0 auto; background: #ffffff; font-size: 0.24rem; color:#666666;  }
+.bdsj .inputs{ width:100%; height:1.2rem; margin: 0 auto; border-bottom:#e9e9e9 solid 1px;}
+.bdsj .inputs li{ float: left; height: 1.2rem; line-height: 1.2rem; }
+.bdsj .inputs .names{ width: 1rem; font-size: 0.28rem; color: #333333; }
+.bdsj .inputs .inputs_sjh{ width: 3.3rem; height:0.5rem ; margin-top: 0.39rem;  font-size: 0.18rem; color: #c4c4c4; }
+.bdsj .inputs .huoqu{ width: 1.9rem; padding-left: 0.1rem; text-align:center; font-size: 0.28rem; color: #333333; margin-top: 0.4rem; margin-bottom: 0.4rem; height: 0.4rem; line-height: 0.4rem; border-left: #e9e9e9 solid 1px; }
+.bdsj .denglu{ width: 100%; height: 0.9rem; margin-top: 0.7rem; background: #ff6600; border-radius: 0.1rem; color:#ffffff; text-align: center; line-height: 0.9rem; font-size: 0.3rem; }
+.bdsj .denglu a{ color:#ffffff;  }

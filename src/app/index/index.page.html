@@ -1,0 +1,36 @@
+<ion-content>
+
+  <div class="renwu_con" *ngIf="tasksList">
+      <ul class="list_s" *ngFor="let tasklist of tasksList; index as i;" (click)="open_con(tasklist.id,1)">
+        <div class="renwu_con_imgs">
+          <img [src]="tasklist.top_img_name?tasklist.top_img_name:default_img">
+        </div>
+        <div class="renwu_con_miaoshu">
+            <span name="title">{{tasklist.name}}</span>
+            <span>{{tasklist.project}}</span>
+            <span>距您大约{{tasklist.juli}}</span>
+        </div>
+        <div class="renwu_con_lingqu">
+          <ul class="list_1">现金奖励</ul>
+          <ul class="list_2">{{tasklist.rmb_r_num}}元</ul>
+          <ul class="list_3" >领任务</ul>
+        </div>
+      </ul>
+      <ul class="jianju"></ul>
+  </div>
+
+        <!--<div class="no_page_bg" >-->
+            <!--&lt;!&ndash;<ul class="imgs"><img src="../../assets/img/404.jpg"></ul>&ndash;&gt;-->
+            <!--<ul class="titles"><i class="iconfont icon-jiazaizhong" >正在搜索您附件的项目...</i></ul>-->
+            <!--&lt;!&ndash;<ul class="titles"><img src="../../assets/img/jiazaizhong.png">正在搜索您附近的项目...</ul>&ndash;&gt;-->
+            <!--&lt;!&ndash;<ul class="anniu" (click) = "reload_page()">重新加载</ul>&ndash;&gt;-->
+        <!--</div>-->
+
+    <div class="no_page_bg" *ngIf="!tasksList " >
+        <ul class="titles">
+            <i class="iconfont icon-jiazaizhong" >正在搜索您附近的项目...</i>
+            <!--<samp (click)="get_city_gps()">重新加载</samp>-->
+        </ul>
+    </div>
+</ion-content>
+
