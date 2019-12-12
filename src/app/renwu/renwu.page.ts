@@ -198,6 +198,7 @@ export class RenwuPage {
         console.log('resp', 'renwu          resp7777777777');
         // alert('resp')
         geolocation.getCurrentPosition((resp) => {
+            console.log(geolocation, 'geolocationgeolocationgeolocation');
             console.log(resp, 'renwu          resp888888');
             // console.log(resp.address.city,'renwu          resp.address.city');
             this.gps_city = resp.address.city;

@@ -2,7 +2,7 @@
 <ion-content>
         <div class="no_page_bg" *ngIf="num == 0">
                 <ul class="imgs">
-                    <img src="../../assets/img/renwumsg.png">
+                    <img src="../../assets/img/renwumsg.png" alt="">
                 </ul>
                 <ul class="titles">您还没有任务,<span (click)="tiaozhuan()">去领取 </span></ul>
                 <!--<ul class="anniu" (click) = "reload_page()">重新加载</ul>-->
@@ -13,7 +13,7 @@
         <div class="no_page_bg_jxz" *ngIf="doingnum == '0'; else haveBlock">
             <ul class="img">
                 <!--<img src="../../assets/img/renwumsg.png">-->
-                <img src="../../assets/img/renwumsg_white.png">
+                <img src="../../assets/img/renwumsg_white.png" alt="">
                 <ul class="title">您还没有任务,<span (click)="tiaozhuan()">去领取 </span></ul>
             </ul>
 
@@ -21,18 +21,19 @@
             <ng-template #haveBlock>
         <ul class="list_s" *ngFor="let doinglist of doingList; index as i;" (click)="open_renwu_jxz(doinglist.link,doinglist.id,doinglist.task_id)">
             <div class="renwu_con_imgs">
-                <img [src]="doinglist.top_img_name">
+                <img [src]="doinglist.top_img_name" alt="" src="">
             </div>
             <div class="renwu_con_miaoshu">
                 <!-- <samp [routerLink]="[doinglist.link,doinglist.id,doinglist.task_id]">{{doinglist.name}}</samp><br>  -->
                 <span  name="title">{{doinglist.name}}<p>{{doinglist.timelong}}</p></span>
                 <!--<span name="over_time"></span>-->
                 <span>{{doinglist.project}}</span>
-                <span *ngIf = "(doinglist.action == 1 || doinglist.action == 2 || doinglist.action == 3) && doinglist.juli; else elseBlock">距您大约{{doinglist.juli}}</span>
+                <span *ngIf = "(doinglist.action == 1 || doinglist.action == 2 || doinglist.action == 3) && doinglist.juli && doinglist.address == ''; else elseBlock">距您大约{{doinglist.juli}}</span>
                 <ng-template #elseBlock>
-<!--                    <span >{{doingList.address}}</span>-->
-                    <span >无法定位项目距离</span>
+                    <span *ngIf = "doinglist.address">{{doinglist.address}}</span>
+                    <span *ngIf = "doinglist.address == ''">无法定位项目距离</span>
                 </ng-template>
+
 
             </div>
             <div class="renwu_con_lingqu">

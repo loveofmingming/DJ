@@ -9,13 +9,13 @@ export * from './daohangbis.model';
 export * from './xinyuzhis.model';
 
 export * from './login.model';
-export * from './localstorage.Model';
+export * from './localstorage.model';
 export * from './sessionstorage.model';
-export * from './updateuserinfo.Model';
-export * from './myxiaoxis.Model';
-export * from './pullweb.Model';
-export * from './sqliteService.Model';
-export * from './JpushUtil.Model';
+export * from './updateuserinfo.model';
+export * from './myxiaoxis.model';
+export * from './pullweb.model';
+export * from './sqliteService.model';
+export * from './JpushUtil.model';
 
 
 

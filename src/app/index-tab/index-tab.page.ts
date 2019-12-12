@@ -284,6 +284,8 @@ export class IndexTabPage extends OnEnterPage {
     );
       modal.onDidDismiss().then( res => {
           this.reload_page();
+          this.get_wode_renwu();
+
       });
     await  modal.present();
   }
@@ -297,6 +299,7 @@ export class IndexTabPage extends OnEnterPage {
                 // console.log(ress, 'renwu ress00000000000000000000');
                 this.wode_renwu_count = ress.body;
                 this.app.wode_renwu_count =  this.wode_renwu_count; // 将任务总数传递给任务(父页面)，刷新总数
+                // 参考https://www.cnblogs.com/huangenai/p/7246651.html 3子获得父实例
             } else {
                 this.wode_renwu_count = '0';
             }

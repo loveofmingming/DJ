@@ -93,8 +93,8 @@ export class ShezhiPage implements OnInit {
         // console.log(res, 'res tuichu');
     });
       // console.log('tuichu');
-    // this._router.navigateByUrl('/home');   // 跳转
-    navigator[ 'app' ].exitApp();
+    this._router.navigateByUrl('/home');   // 跳转
+    // navigator[ 'app' ].exitApp();
   }
   //   tuichuLogin() {
   //       let alert = this.alertCtrl.create({

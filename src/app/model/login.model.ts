@@ -31,7 +31,6 @@ export class LoginModel
     return this.tools.postUrl('/wode/Login/getYzm',con);
   }
 
-
   // 是否登录判断
   LoginSession() {
     return this.tools.postUrl('/wode/Login/getLoginUserInfo', '');

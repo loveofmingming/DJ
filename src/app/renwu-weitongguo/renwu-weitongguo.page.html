@@ -67,7 +67,7 @@
       </li>
       <li name="titles" class="object" *ngIf="item.is_gps==1"><samp>项目地址:{{tasksListCon.mytask?.address}}</samp></li>
       <li name="imgs" *ngIf="item.is_gps!=1">
-      <img *ngFor="let item_v of item.img_name; index as i;" [src] = "img_url+'/'+item_v.img_name">
+      <img *ngFor="let item_v of item.img_name; index as i;" [src] = "img_url+'/'+item_v.img_name" alt="">
       </li> 
   </ul>
   </div>

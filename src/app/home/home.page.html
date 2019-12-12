@@ -5,7 +5,9 @@
             <ul class="inputs">
                 <li class="names">手机号</li>
                 <li class="inputs_sjh">
-                    <input  type="text" type="search" value="value" class="phone" placeholder="请输入手机号"  autocomplete="on" [(ngModel)]="sjName">
+                    <label>
+                        <input type="search" value="value" class="phone" placeholder="请输入手机号" autocomplete="on" [(ngModel)]="sjName">
+                    </label>
                 </li>
                 <li class="huoqu">
                     <samp>
@@ -17,7 +19,9 @@
             <ul class="inputs">
                 <li class="names">验证码</li>
                 <li class="inputs_sjh">
-                    <input type="text"  class="yzm" placeholder="请输入验证码" [(ngModel)]="yzmName">
+                    <label>
+                        <input type="text"  class="yzm" placeholder="请输入验证码" [(ngModel)]="yzmName">
+                    </label>
                 </li>
             </ul>
             <ul class="denglu">

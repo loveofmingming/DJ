@@ -20,7 +20,7 @@
             <!--
            <img src="../../assets/img/ls.jpg" >
            -->
-            <img [src]="big_img" >
+            <img [src]="big_img"  alt="">
             <!--<ion-slides pager="true" [options]="slideOpts">-->
             <!--<ion-slide *ngFor="let swiper_img of tasksListCon.tt_list[this.big_img_i].img_name ;index as img_i">-->
             <!--<h1> <img [src]="big_img" ></h1>-->
@@ -34,7 +34,7 @@
     <!--放大-->
     <div class="renwu_con_jbqk">
         <ul class="titles">
-            <li name="zhaopian"><img [src]="tasksListCon.top_img_name"></li>
+            <li name="zhaopian"><img [src]="tasksListCon.top_img_name" alt=""></li>
             <li name="names">{{tasksListCon.name}}</li>
             <li name="jiangli">最多奖励<samp>￥{{tasksListCon.rmb_r_num}}元</samp></li>
         </ul>
@@ -78,7 +78,7 @@
             </li>
             <li name="imgs" *ngIf = "item.is_gps != '1'">
                 <samp >
-                    <img [src]="item.img_name[0]" (click)="showBigImages(i,0)">
+                    <img [src]="item.img_name[0]" (click)="showBigImages(i,0)" alt="">
                 </samp>
 
             </li>

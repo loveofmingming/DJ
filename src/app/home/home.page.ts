@@ -330,6 +330,7 @@ export class HomePage extends OnEnterPage  {
                 res = this.toolsmodel.decodeUrlList(res);
                 console.log(res, 'res1111111111111111');
                 if ( res.error != '0' ) {
+                    alert(res.body)
                     this.toastTip(res.body);
                     return;
                 } else {

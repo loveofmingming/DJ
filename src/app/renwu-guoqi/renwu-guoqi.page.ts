@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TasksModel,ToolsModel,LoginModel,LocalStorageModel} from '../model';
+import { TasksModel,ToolsModel,LoginModel,LocalStorageModel, MyTasksModel} from '../model';
 import { ConfigModel} from '../model/config.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import {AlertController,ModalController,NavParams } from '@ionic/angular';
+import {AlertController,ModalController, NavParams } from '@ionic/angular';
 @Component({
   selector: 'app-renwu-guoqi',
   templateUrl: './renwu-guoqi.page.html',
@@ -19,8 +19,9 @@ export class RenwuGuoqiPage implements OnInit {
     big_img_ti:number;
     big_img_i: number;
     big_img_count: number;
-
+    wode_renwu_count: any;
   constructor(
+
       public alertcontroller:AlertController,
       public tasksmodel:TasksModel,
       public toolsmodel:ToolsModel,
@@ -29,7 +30,8 @@ export class RenwuGuoqiPage implements OnInit {
       public loginmodel: LoginModel,
       public router:Router,
       public modalCtrl:ModalController,
-      public navParams: NavParams
+      public navParams: NavParams,
+      public mytaskmodel: MyTasksModel,
   ) {
       this.img_url = ConfigModel.BASE_IMG_URL;
       // this.mtid = this.route.snapshot.paramMap.get('id');
@@ -173,4 +175,5 @@ export class RenwuGuoqiPage implements OnInit {
     hideBigImage() {
         this.showBigImageState = false;
     }
+   
 }
