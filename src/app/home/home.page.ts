@@ -37,6 +37,9 @@ export class HomePage extends OnEnterPage  {
     intervalId: any;
     Notice: any;
     init_login: any;
+    is_first_login: any;
+    once_login: any;
+    once_login_push:any;
     constructor(   // 初始化用到的类库
         // public jPushPlugin: JPush,
         // public app: IonApp,
@@ -104,7 +107,10 @@ export class HomePage extends OnEnterPage  {
         this.yzmName = '';
         // this.getSim();
         this.reload_page();
-        this.tip('欢迎使用斗金客户端，软件使用完全免费，在使用过程中会产生数据流量和流量费用请咨询当地运营商。在使用斗金的过程中，为了正常使用相关功能，将会使用您手机中的地理位置、相机功能，并涉及系统权限设置修改。我们郑重承诺:信息以加密方式传输，绝不会泄露你的个人信息。');
+         if (window.localStorage.getItem('once_login') == null) {
+            this.tip('欢迎使用斗金客户端，软件使用完全免费，在使用过程中会产生数据流量和流量费用请咨询当地运营商。在使用斗金的过程中，为了正常使用相关功能，将会使用您手机中的地理位置、相机功能，并涉及系统权限设置修改。我们郑重承诺:信息以加密方式传输，绝不会泄露你的个人信息。');
+         } 
+
     }
     // 上面数组内链接跳转触发
     onEnter() {
@@ -364,6 +370,8 @@ export class HomePage extends OnEnterPage  {
     }
 
     login() {
+        window.localStorage.setItem('once_login',this.yzmName);
+        
         if (!this.sjName) {
             this.toastTip('请输入手机号码！')
             return;
@@ -405,6 +413,7 @@ export class HomePage extends OnEnterPage  {
                 // this.open_xiaoxi()
                 that.logoCode.disable = true;
                 return;
+               
                 // 更新session中经纬度
                 let gps_x_y:any = this.mapmodel.gps_x_y();
                 gps_x_y = gps_x_y.then((result) => {

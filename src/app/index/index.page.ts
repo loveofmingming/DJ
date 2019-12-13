@@ -63,11 +63,13 @@ export class IndexPage extends OnEnterPage {
         this.matchUrl = ['/default','/default/renwu','/default/renwu/pickables'];
         this.init = true;
         this.default_img = "../../assets/img/ls.png";
+        this.is_refresh = false;
         setInterval(() => {
             // 极光允许推送后发送信息，接收 刷新
             // this.get_weidu_xiaoxi();
             this.messageService.message$.subscribe(is_refresh => this.is_refresh = is_refresh);
             // console.log('刷新任务列表');
+            // alert(this.is_refresh)
            if (this.is_refresh) {
                this.taskmodel.getAllTasks().then(res => {
                    let ress: any = res;
@@ -83,7 +85,7 @@ export class IndexPage extends OnEnterPage {
                    }
                });
            }
-        }, 2000);
+        }, 1000);
         }
 
     async ngOnInit() {

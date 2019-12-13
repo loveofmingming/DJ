@@ -62,19 +62,16 @@ export class IndexTabPage extends OnEnterPage {
         this.finishnum = 0;
         this.num = 0;
     }
-
     async ngOnInit () {
         this.reload_page();
         console.log('index-tab ngOnInit');
     }
-
     onEnter() {
             // this.reload_page();
         console.log('index-tab onEnter');
     }
      // 第一次进来页面和重新加载的数据
     async reload_page() {
-
         // console.log(this.init,'tab this.init');
         // await super.showLoading(this.loadingCtrl, ' 加载中...');
         await this.loginmodel.LoginSessionT().then(res => {

@@ -37,6 +37,8 @@ export class RenwuPage {
     count: any;
     is_refresh: any;
     init_login: any;
+    is_first_login: any;
+    once_login_push:any;
     @ViewChild('renwupages', { static: true }) tabRef: IonTabs;
     constructor(
         // public myInterval: any, // 定时器
@@ -74,6 +76,7 @@ export class RenwuPage {
     ngOnInit() {
         console.log('chushihua');
         // this.open_home();
+        console.log(window.localStorage.getItem('is_first_login'),'2222222222222222222222222222222222222222222')
         this.loginmodel.LoginSession().subscribe(res => {
             let login_info: any = this.toolsmodel.decodeUrlList(res);
             console.log(res, 'resresrse111111111111122222222222');
@@ -91,15 +94,18 @@ export class RenwuPage {
                 console.log('11111100000000000000000000000000');
                 // this.get_wode_renwu();
                 this.JpushUtilModel.setAlias('');
-                this.allowd_message(login_info.body.id);
-
+                console.log(window.localStorage.getItem('once_login_push'),'55555555555555555555555555555555555555')
+                if (window.localStorage.getItem('once_login_push') == null) {
+                    this.allowd_message(login_info.body.id);
+                 }
+                 window.localStorage.setItem('once_login_push',login_info.body.mobile);
             }
         }); // 登陆验证
     }
     ionViewDidEnter(): void {
         console.log('进入首页面');
     }
-    async presentToast(msg) {
+    async presentToast(msg:any) {
         const toast = await this.toastController.create({
             message: msg,
             duration: 2000,
@@ -113,7 +119,7 @@ export class RenwuPage {
     }
     ionViewDidload() {
     }
-    async allowd_message(i) {
+    async allowd_message(i:any) {
         const alert = await this.alertController.create({
             backdropDismiss: false,
             header: '允许"斗金"在使用期间给您发送通知吗？',
@@ -173,7 +179,7 @@ export class RenwuPage {
             }
         });
     }
-    get_city_gps(type) {   // 登录信息里的gps_time 已经在登录时的时间上加了半小时
+    get_city_gps(type:any) {   // 登录信息里的gps_time 已经在登录时的时间上加了半小时
         this.get_wode_renwu();
         // this.get_city_gp_c();
         // let today_time = this.toolsmodel.getTodayTime();
@@ -231,6 +237,8 @@ export class RenwuPage {
         this.gps_x = resp.coords.latitude;
         this.gps_y = resp.coords.longitude;
         this.get_address_bybaidumap(resp.coords.latitude + 0.006000, resp.coords.longitude + 0.010000, this );
+        this.updatesessioninfo();
+       
         }).then(() => {
             // alert('2then');
             this.updatesessioninfo();
@@ -243,7 +251,7 @@ export class RenwuPage {
     }
     // a6685e9d9c4603089ba50b9cdaeff7fd
     // a6685e9d9c4603089ba50b9cdaeff7fd
-    get_address_bybaidumap(x, y, that) {
+    get_address_bybaidumap( x:any, y:any, that:any) {
         // let that = this;
         // 原始GPS坐标转为百度坐标
         const baiduPoint = new BMap.Point( y, x );
@@ -282,6 +290,11 @@ export class RenwuPage {
         console.log(this.gps_x, 'this.gps_x');
         console.log(this.gps_y, 'this.gps_y');
         this.loginmodel.updateSessionInfo(sessioncon).subscribe(res => {
+            if (res) {
+            this.is_refresh = true;
+            this.messageService.messageAction(this.is_refresh); // index刷新
+            }
+            
         });
     }
     async open_search() {

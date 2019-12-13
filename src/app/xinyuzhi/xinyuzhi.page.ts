@@ -33,7 +33,9 @@ export class XinyuzhiPage implements OnInit {
     await alert.present();
   }
   ngOnInit() {
-    
+    console.log(window.localStorage,'window.localStoragewindow.localStoragewindow.localStorage')
+    this.userId = window.localStorage.getItem('userId');
+    console.log(this.userId,'this.userIdthis.userIdthis.userIdthis.userIdthis.userIdthis.userId000')
     this.loginmodel.LoginSession().subscribe(res => {
       let login_info:any = this.toolsmodel.decodeUrlList(res);
       if(login_info.error != '0'){

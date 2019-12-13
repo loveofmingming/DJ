@@ -15,6 +15,7 @@ export class ShezhiPage implements OnInit {
   wx_user_info: any;
   mobile: any;
     init:boolean;//标识是否是第一次加载
+    once_login_push:any;
   constructor(
     public loginmodel: LoginModel,
     public localstorageModel: LocalStorageModel,
@@ -39,7 +40,7 @@ export class ShezhiPage implements OnInit {
       } else {
         this.user_info = login_info.body;
           this.mobile = this.user_info.mobile
-          // console.log(this.user_info, 'user_info0000000000000000000000000000');
+          console.log(this.user_info, 'user_info0000000000000000000000000000');
           this.loginmodel.getSessionWeixinUserInfo().subscribe(res => {
           let wx_info: any = this.tools.decodeUrlList(res);
             if ( wx_info.error != '0') {
@@ -92,9 +93,10 @@ export class ShezhiPage implements OnInit {
     this.loginmodel.clearSession().subscribe( res => {
         // console.log(res, 'res tuichu');
     });
-      // console.log('tuichu');
-    this._router.navigateByUrl('/home');   // 跳转
-    // navigator[ 'app' ].exitApp();
+      console.log(this.mobile,'6666666666666666666666666666666666');
+      window.localStorage.setItem('once_login_push',this.mobile);
+      // this._router.navigateByUrl('/home');   // 跳转
+      navigator[ 'app' ].exitApp();
   }
   //   tuichuLogin() {
   //       let alert = this.alertCtrl.create({
