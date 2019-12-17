@@ -2,7 +2,7 @@ import { Component, OnInit , OnDestroy , ChangeDetectorRef } from '@angular/core
 import { AlertController, } from '@ionic/angular';
 import { ActivatedRoute , Router } from '@angular/router';
 import { ToolsModel, XiaoJinKusModel, DaoHangBisModel, XinYuZhisModel, LoginModel, LocalStorageModel} from '../model';
-import { ConfigModel } from '../Model/config.model';
+import { ConfigModel } from '../model/config.model';
 import { Alert } from 'selenium-webdriver';
 import { MessageService } from '../service/message.service';
 import { Subscription } from 'rxjs/Subscription';

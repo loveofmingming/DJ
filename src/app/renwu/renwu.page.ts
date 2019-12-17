@@ -286,9 +286,9 @@ export class RenwuPage {
             gpsx: this.gps_x,
             gpsy: this.gps_y,
         };
-        console.log(this.gps_time, 'update');
-        console.log(this.gps_x, 'this.gps_x');
-        console.log(this.gps_y, 'this.gps_y');
+        // console.log(this.gps_time, 'update');
+        // console.log(this.gps_x, 'this.gps_x');
+        // console.log(this.gps_y, 'this.gps_y');
         this.loginmodel.updateSessionInfo(sessioncon).subscribe(res => {
             if (res) {
             this.is_refresh = true;

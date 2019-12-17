@@ -1,4 +1,5 @@
 @import "../../style/common.scss";
+// @import "../../style/renwu_con.scss";// shouye zhezhao
 .container {position: relative;width: 100%;height: 100%;}
 .container .login{ margin-left: 0.4rem; margin-right: 0.4rem; height: 100%;}
 .container .login .titles{ width:100%; height:2.3rem; text-align: center; padding-top:1.25rem;  margin: 0 auto; background: #ffffff; font-size: 0.47rem; color:#333333;  }
@@ -34,3 +35,19 @@
 .container  .login .login_bottom .io{ width: 100%; height: 0.8rem; text-align:center;}
 .container  .login .login_bottom .io img{ width: 0.8rem; height: 0.8rem;}
 
+.info{text-align: center;background-color: yellow}
+
+.gonggong_tanchuang{ width:100%; height:100%; padding-top:40%; position:fixed; z-index:11; top:0; bottom:0; background:#000000;    background: rgba(0, 0, 0, 0.6) ;   }
+.gonggong_tanchuang .yangli_num{ width:80%; height:auto; overflow:hidden; margin:0 auto; background:#fff; border-radius:10px; }
+.gonggong_tanchuang .yangli_num .con li{ width:100%;  margin: 0; padding: 0; padding-left: 1%;}
+.gonggong_tanchuang .guanbi{ width:40%; height:0.6rem;   margin:0 auto; margin-top: 0.4rem; text-align: center; background:url(../../assets/img/jiangli_guanbi.png) center center no-repeat; background-size:0.53rem 0.53rem;   z-index: 111 }
+.gonggong_tanchuang .yangli_num{ width:67%; height:auto; margin-bottom: 0.1rem; }
+.gonggong_tanchuang .yangli_num .con{ width:100%;max-height: 250px;overflow-y: scroll;overflow-x: hidden; padding: 0 7%;   margin:0 auto; margin-bottom: 0.1rem;letter-spacing: 0.5px; }
+.gonggong_tanchuang .yangli_num .con::-webkit-scrollbar{display: none;}
+.gonggong_tanchuang .yangli_num h2{line-height: 0.6rem; text-align: center;font-weight: 600;padding: 4% 0;font-size: 0.3rem;; color: #1e2023;}
+.gonggong_tanchuang .yangli_num li{text-align: left;font-size: 0.28rem;color: #737373; padding: 0 0;}
+.gonggong_tanchuang .yangli_num .container{padding: 0 0;}
+.gonggong_tanchuang .yangli_num span{color: #3880ff;}
+.gonggong_tanchuang .yangli_num .bt{width: 100%;height: 0.8rem; font-size: 0.28rem;border-top:gainsboro solid 1px;}
+.gonggong_tanchuang .yangli_num .bt li{ display: block;float: left; width: 50%;text-align: center; line-height: 0.8rem;; height: 0.8rem;}
+.gonggong_tanchuang .yangli_num .bt .reject{ display: block; border-right: gainsboro solid 1px;}

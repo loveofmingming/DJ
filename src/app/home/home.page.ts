@@ -1,4 +1,8 @@
-import { Component , OnInit } from '@angular/core';
+import { Component , OnInit ,Output ,Input , EventEmitter,Directive,HostListener } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { debounceTime } from 'rxjs/operators';
+import { Subscription } from 'rxjs/Subscription'; // 上三 防抖
+
 import { Router } from '@angular/router';           // 跳转类库
 import { ToastController, LoadingController , ModalController } from '@ionic/angular';   // 弹窗类库
 // import { Wechat } from '@ionic-native/wechat/ngx';
@@ -30,7 +34,11 @@ declare var Wechat: any;
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
 })
-export class HomePage extends OnEnterPage  {
+export class HomePage extends OnEnterPage{
+    // @Input() debounceTime = 500;
+    // @Output() debounceClick = new EventEmitter();
+    // private subscription: Subscription;
+     // 上四 防抖
     sjName: string;  // 接收手机账号
     yzmName: string;  // 接收手机验证码
     init: boolean; // 标识是否是第一次加载
@@ -40,7 +48,11 @@ export class HomePage extends OnEnterPage  {
     is_first_login: any;
     once_login: any;
     once_login_push:any;
+    showBigImageState:boolean;
     constructor(   // 初始化用到的类库
+        // private clicks = new Subject(),
+        // private subscription: Subscription,
+
         // public jPushPlugin: JPush,
         // public app: IonApp,
         public Navctrl: NavController,
@@ -67,6 +79,7 @@ export class HomePage extends OnEnterPage  {
         super(router);
         this.matchUrl = ['/home'];
         this.init = true;
+        this.showBigImageState = false;
         // this.loginmodel.LoginSession().subscribe(res => {
         //   console.log(res);
         //   let login_info:any = this.toolsmodel.decodeUrlList(res);
@@ -93,9 +106,14 @@ export class HomePage extends OnEnterPage  {
                  console.log(res);
                  console.log('收到后台通知');
              });*/
+        // const Ch = document.getElementById('check')
+        // console.log(Ch,'dddddddddddddddddddddd');
+        // Ch = this.open_permission()
     }
     async ngOnInit () {   // 第一次加载执行
-
+        // this.subscription = this.clicks.pipe(
+        //     debounceTime(this.debounceTime)
+        //   ).subscribe(e => this.debounceClick.emit(e))
         super.ngOnInit();
         // this.platform.ready().then(() => {
         //     // alert('123')
@@ -108,7 +126,8 @@ export class HomePage extends OnEnterPage  {
         // this.getSim();
         this.reload_page();
          if (window.localStorage.getItem('once_login') == null) {
-            this.tip('欢迎使用斗金客户端，软件使用完全免费，在使用过程中会产生数据流量和流量费用请咨询当地运营商。在使用斗金的过程中，为了正常使用相关功能，将会使用您手机中的地理位置、相机功能，并涉及系统权限设置修改。我们郑重承诺:信息以加密方式传输，绝不会泄露你的个人信息。');
+            this.showBigImageState = true;
+            // this.tip('欢迎使用斗金客户端，软件使用完全免费，在使用过程中会产生数据流量和流量费用请咨询当地运营商。在使用斗金的过程中，为了正常使用相关功能，将会使用您手机中的地理位置、相机功能，并涉及系统权限设置修改。我们郑重承诺:信息以加密方式传输，绝不会泄露你的个人信息。');
          } 
 
     }
@@ -173,87 +192,106 @@ export class HomePage extends OnEnterPage  {
             disable: true
         };
     }
-   async tip(msg) {
-        const alert = await this.alertController.create({
-            header: '温馨提示',
-            message: '<div class="info" style="text-align: left">欢迎使用斗金客户端，软件使用完全免费，在使用过程中会产生数据流量和流量费用请咨询当地运营商。<br>' +
-                '在使用斗金的过程中，为了正常使用相关功能，将会使用您手机中的地理位置、相机功能，并涉及系统权限设置修改。<br>' +
-                '我们郑重承诺:信息以加密方式传输,绝不会泄露您的个人信息。</div>',
-            cssClass: 'gongsi',
-            // inputs: [
-            //     {
-            //         name: 'name1',
-            //         type: 'text',
-            //         placeholder: '请输入公司名称！',
-            //     }
-            // ],
-            buttons: [
-                {
-                    text: '退出',
-                    role: 'cancel',
-                    cssClass: 'primary',
-                    handler: () => {
-                        console.log('Confirm Cancel');
-                        // this.modalCtrl.dismiss();
-                        // this.JpushUtilModel.setAlias('');
-                        navigator[ 'app' ].exitApp();
-                        // this.platform.exitApp();
-                    }
-                }, {
-                    text: '使用',
-                    cssClass: 'sure',
-                    handler: (value) => {
-                    // this.JpushUtilModel.setAlias('login_info.body.id');
-                    // this.sendMessage(this.Notice);
-                    this.back();
-                    this.mapmodel.gps_play_shouquan();
-                    }
-                }
-            ]
-        });
-        await alert.present();
-    }
-    // async gongcheng_img_fangqi() {
-    //     const alert = await this.alertController.create({
-    //         header: '允许斗金给您推送消息吗?',
-    //         cssClass: 'gongsi',
-    //         // inputs: [
-    //         //     {
-    //         //         name: 'name1',
-    //         //         type: 'text',
-    //         //         placeholder: '请输入公司名称！',
-    //         //     }
-    //         // ],
-    //         buttons: [
-    //             {
-    //                 text: '拒绝',
-    //                 role: 'cancel',
-    //                 cssClass: 'primary',
-    //                 handler: () => {
-    //                     console.log('Confirm Cancel');
-    //                     // this.modalCtrl.dismiss();
-    //                     this.JpushUtilModel.setAlias('');
-    //                 }
-    //             }, {
-    //                 text: '允许',
-    //                 cssClass: 'sure',
-    //                 handler: (value) => {
-    //                     // this.JpushUtilModel.setAlias('login_info.body.id');
-    //                 // this.sendMessage(this.Notice);
-    //                 }
-    //             }
-    //         ]
-    //     });
-    //     // return await
-    //     // alert.present();
-    //     await alert.present();
-    //
-    // }
 
-    // sendMessage(Notice: string) {
-    //     Notice = '1';
-    //     this.messageService.messageAction(Notice);
-    // }
+//    async tip(msg) {
+//         const alert = await this.alertController.create({
+//             header: '用户隐私协议概要',
+//             message: '<div class="info" style="text-align: left " onclick="open_permission()">欢迎使用斗金客户端，软件使用完全免费，在使用过程中会产生数据流量和流量费用请咨询当地运营商。<br>' +
+//                 '在使用斗金的过程中，为了正常使用相关功能，将会使用您手机中的地理位置、相机功能，并涉及系统权限设置修改。<br>' +
+//                 '我们郑重承诺:信息以加密方式传输,绝不会泄露您的个人信息。' +
+//                 '<br>' + '查看完整版 <a  href="./privacy" target="blank"  id="check" ng-click="open_permission()">《用户服务协议》</a>及<span (click)="open_xiaoxi()">《隐私政策》</span></div>',
+//             cssClass: 'gongsi',
+//             // inputs: [
+//             //     {
+//             //         name: '123',
+//             //         type: 'text',
+//             //         // placeholder: '请输入公司名称！',
+//             //     }
+//             // ],
+//             // subHeader:'<div> 123 </div>',
+//             buttons: [
+//                 // {
+//                 //     text:'《用户服务协议》',
+//                 //     role:'cancel',
+//                 //     cssClass:'link1',
+//                 //     handler:() => {
+//                 //         this.open_permission()
+//                 //     }
+//                 // },
+//                 // {
+//                 //     text:'《隐私政策》',
+//                 //     role:'cancel',
+//                 //     cssClass:'link2',
+//                 //     handler:() => {
+//                 //         this.open_xiaoxi()
+//                 //     }
+//                 // },
+//                 {
+//                     text: '不同意',
+//                     role: 'cancel',
+//                     cssClass: 'primary',
+//                     handler: () => {
+//                         console.log('Confirm Cancel');
+//                         // this.modalCtrl.dismiss();
+//                         // this.JpushUtilModel.setAlias('');
+//                         navigator[ 'app' ].exitApp();
+//                         // this.platform.exitApp();
+//                     }
+//                 }, {
+//                     text: '同意',
+//                     cssClass: 'sure',
+//                     handler: (value) => {
+//                     // this.JpushUtilModel.setAlias('login_info.body.id');
+//                     // this.sendMessage(this.Notice);
+//                     this.back();
+//                     this.mapmodel.gps_play_shouquan();
+//                     }
+//                 }
+//             ]
+//         });
+//         await alert.present();
+//     }
+//     async gongcheng_img_fangqi() {
+//         const alert = await this.alertController.create({
+//             header: '允许斗金给您推送消息吗?',
+//             cssClass: 'gongsi',
+//             // inputs: [
+//             //     {
+//             //         name: 'name1',
+//             //         type: 'text',
+//             //         placeholder: '请输入公司名称！',
+//             //     }
+//             // ],
+//             buttons: [
+//                 {
+//                     text: '拒绝',
+//                     role: 'cancel',
+//                     cssClass: 'primary',
+//                     handler: () => {
+//                         console.log('Confirm Cancel');
+//                         // this.modalCtrl.dismiss();
+//                         this.JpushUtilModel.setAlias('');
+//                     }
+//                 }, {
+//                     text: '允许',
+//                     cssClass: 'sure',
+//                     handler: (value) => {
+//                         // this.JpushUtilModel.setAlias('login_info.body.id');
+//                     // this.sendMessage(this.Notice);
+//                     }
+//                 }
+//             ]
+//         });
+//         // return await
+//         // alert.present();
+//         await alert.present();
+    
+//     }
+
+//     sendMessage(Notice: string) {
+//         Notice = '1';
+//         this.messageService.messageAction(Notice);
+//     }
     mobileCode: any = {   // 定义数组
         name:'获取验证码',
         time: 60 ,
@@ -451,7 +489,13 @@ export class HomePage extends OnEnterPage  {
         });
         await modal.present();
     }
-
+    reject(){
+        navigator[ 'app' ].exitApp();
+    }
+    agree(){
+        this.showBigImageState = false;
+        this.mapmodel.gps_play_shouquan();
+    }
     // 警告提醒部分
     async toastTip(message: string) {
         let toast = await this.toastCtrl.create({

@@ -40,7 +40,7 @@ export class ShezhiPage implements OnInit {
       } else {
         this.user_info = login_info.body;
           this.mobile = this.user_info.mobile
-          console.log(this.user_info, 'user_info0000000000000000000000000000');
+          // console.log(this.user_info, 'user_info0000000000000000000000000000');
           this.loginmodel.getSessionWeixinUserInfo().subscribe(res => {
           let wx_info: any = this.tools.decodeUrlList(res);
             if ( wx_info.error != '0') {
@@ -93,10 +93,10 @@ export class ShezhiPage implements OnInit {
     this.loginmodel.clearSession().subscribe( res => {
         // console.log(res, 'res tuichu');
     });
-      console.log(this.mobile,'6666666666666666666666666666666666');
+      // console.log(this.mobile,'6666666666666666666666666666666666');
       window.localStorage.setItem('once_login_push',this.mobile);
-      // this._router.navigateByUrl('/home');   // 跳转
-      navigator[ 'app' ].exitApp();
+      this._router.navigateByUrl('/home');   // 跳转
+      // navigator[ 'app' ].exitApp();
   }
   //   tuichuLogin() {
   //       let alert = this.alertCtrl.create({
