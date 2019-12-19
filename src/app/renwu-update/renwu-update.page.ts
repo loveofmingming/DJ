@@ -52,6 +52,7 @@ export class RenwuUpdatePage implements OnInit {
     key_item_arr_tmp: any;
     is_back: any;
     is_fangqi: any;
+    doubleHit: boolean;
   constructor(
       private cdr: ChangeDetectorRef,
       private messageService: MessageService,
@@ -91,6 +92,7 @@ export class RenwuUpdatePage implements OnInit {
     this.key_item_arr = new Array();
     this.key_item_arr_tmp = new Array();
     this.is_fangqi = true; // 调控放弃后恢复
+    this.doubleHit = false;
   }
 
   ngOnInit(): void {
@@ -280,11 +282,13 @@ export class RenwuUpdatePage implements OnInit {
     const blob = new Blob(byteArrays, {type: contentType});
     return blob;
    }
-  photo_submit(i) {
+  photo_submit() {
       // this.upload(); // 修改页不做限制
+    // alert(this.doubleHit)
     if (JSON.stringify(this.gongcheng_uploadFileArr) == '[]' && this.taskInfo.mytask.my_tt_list.length > 1) {
         this.onTixing('没有上传图片');
     } else {
+      this.doubleHit = true
       this.upload();
     }
 }
@@ -293,7 +297,7 @@ export class RenwuUpdatePage implements OnInit {
     // console.log(this.gongcheng_uploadFileArr);
     for ( const o in this.gongcheng_uploadFileArr) {
         if (this.gongcheng_uploadFileArr[o]) {
-            for ( const i in this.gongcheng_uploadFileArr[o]) {
+            for (const i in this.gongcheng_uploadFileArr[o]) {
                 this.readerFile(this.gongcheng_uploadFileArr[o][i].img_src, o , i );
                 // 直接存base64
                 // this.formData.append("files"+"_"+o, this.gongcheng_uploadFileArr[o][i].img_src,"images.jpg");
@@ -316,8 +320,9 @@ export class RenwuUpdatePage implements OnInit {
         // console.log(res);
         if (res) {
             this.onTixing('提交成功！15分钟内会告知您审核结果，请关注您的app通知。（建议您在施工现场稍等十几分钟，如有问题，方便重新拍照）', '1');
+            this.doubleHit = false;
         }
-    })
+    });
     // this.onTixing('提交成功！15分钟内会告知您审核结果，请关注您的app通知。（建议您在施工现场稍等十几分钟，如有问题，方便重新拍照）');
     // this.modalCtrl.dismiss();
 }

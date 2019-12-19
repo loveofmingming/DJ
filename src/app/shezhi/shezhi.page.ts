@@ -56,7 +56,7 @@ export class ShezhiPage implements OnInit {
     ionViewDidLeave() {
         this.init = true;
     }
-  bangdingweixin(){
+  bangdingweixin() {
     Wechat.isInstalled(isInstalled => {
       let scope = "snsapi_userinfo",
           state = "_" + (+new Date());
@@ -94,9 +94,9 @@ export class ShezhiPage implements OnInit {
         // console.log(res, 'res tuichu');
     });
       // console.log(this.mobile,'6666666666666666666666666666666666');
-      window.localStorage.setItem('once_login_push',this.mobile);
-      this._router.navigateByUrl('/home');   // 跳转
-      // navigator[ 'app' ].exitApp();
+      window.localStorage.setItem('once_login_push', this.mobile);
+      // this._router.navigateByUrl('/home');   // 跳转
+      navigator[ 'app' ].exitApp();
   }
   //   tuichuLogin() {
   //       let alert = this.alertCtrl.create({

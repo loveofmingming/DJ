@@ -49,6 +49,8 @@ export class HomePage extends OnEnterPage{
     once_login: any;
     once_login_push:any;
     showBigImageState:boolean;
+    // mobileCode.disable:boolean;
+    doubleHitPress:boolean;
     constructor(   // 初始化用到的类库
         // private clicks = new Subject(),
         // private subscription: Subscription,
@@ -80,6 +82,7 @@ export class HomePage extends OnEnterPage{
         this.matchUrl = ['/home'];
         this.init = true;
         this.showBigImageState = false;
+        this.doubleHitPress = false;
         // this.loginmodel.LoginSession().subscribe(res => {
         //   console.log(res);
         //   let login_info:any = this.toolsmodel.decodeUrlList(res);
@@ -178,15 +181,12 @@ export class HomePage extends OnEnterPage{
         this.mobileCode = {  // 定义数组
             name: '获取验证码',
             time: 60,
-            disable: true
+            disable: false
         };
         this.init = false;
         this.init_login = false;
-        this.mobileCode = {   // 定义数组
-            name: '获取验证码',
-            time: 60 ,
-            disable: true
-        };
+        this.doubleHitPress = false;
+        // console.log(this.logoCode, 'this.logo code');
         this.logoCode  = {   // 定义数组
             name: '登录',
             disable: true
@@ -295,7 +295,7 @@ export class HomePage extends OnEnterPage{
     mobileCode: any = {   // 定义数组
         name:'获取验证码',
         time: 60 ,
-        disable: true
+        disable: false
     };
 
     // getSim(){
@@ -366,6 +366,7 @@ export class HomePage extends OnEnterPage{
             alert('请输入正确的手机号!');
             return;
         } else {
+            this.doubleHitPress = true; // 让按钮不可用
             // this.setTime();
             let getYzm_info = {
                 sjName: this.sjName
@@ -378,7 +379,7 @@ export class HomePage extends OnEnterPage{
                     this.toastTip(res.body);
                     return;
                 } else {
-                    this.mobileCode.disable = false;
+                    // this.mobileCode.disable = true;
                     this.setTime();
                     return;
                 }
@@ -389,7 +390,8 @@ export class HomePage extends OnEnterPage{
         if (this.mobileCode.time == 0) {
             this.mobileCode.time = 60;
             this.mobileCode.name = '获取验证码';
-            this.mobileCode.disable = true;
+            // this.mobileCode.disable = false;
+            this.doubleHitPress = false;
             return;
         } else {
             this.mobileCode.time -- ;
@@ -408,8 +410,7 @@ export class HomePage extends OnEnterPage{
     }
 
     login() {
-        window.localStorage.setItem('once_login',this.yzmName);
-        
+        window.localStorage.setItem('once_login', this.yzmName);
         if (!this.sjName) {
             this.toastTip('请输入手机号码！')
             return;
@@ -419,15 +420,16 @@ export class HomePage extends OnEnterPage{
             return;
         }
         this.logoCode.name = '登录中..';
-        this.logoCode.disable = false;
-        let post_user_info = {
+        this.logoCode.disable = false; // 按钮可提交
+        // tslint:disable-next-line:variable-name
+        const post_user_info = {
             sjName: this.sjName,
             yzmName: this.yzmName
         };
         console.log('yanzheng');
         console.log('2222222');
         // alert('yanzheng')
-        var that = this;
+        const that = this;
         that.loginmodel.accountLogin(post_user_info).subscribe(res => {
             // alert(res)
             res = that.toolsmodel.decodeUrlList(res);
@@ -435,13 +437,13 @@ export class HomePage extends OnEnterPage{
             if (res.error !== '0' ) {
                 that.toastTip(res.body);
                 that.logoCode.name = '登录';
-                that.logoCode.disable = true;
+                that.logoCode.disable = true; // 按钮不可提交
                 return;
             } else {
                 clearTimeout(that.intervalId);
                 that.intervalId = null;
                 that.logoCode.name = '登录中..';
-                that.logoCode.disable = true;
+                that.logoCode.disable = true; // 按钮不可提交
                 // this.router.navigateByUrl('/default'); // 跳转
                 // this.router.navigate(['default'])
                 this.Navctrl.navigateRoot(['default']);

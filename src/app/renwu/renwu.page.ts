@@ -238,7 +238,7 @@ export class RenwuPage {
         this.gps_y = resp.coords.longitude;
         this.get_address_bybaidumap(resp.coords.latitude + 0.006000, resp.coords.longitude + 0.010000, this );
         this.updatesessioninfo();
-       
+
         }).then(() => {
             // alert('2then');
             this.updatesessioninfo();

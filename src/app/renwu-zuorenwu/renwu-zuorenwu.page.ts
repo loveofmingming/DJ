@@ -488,6 +488,7 @@ export class RenwuZuorenwuPage implements OnInit {
         });
         await alert.present();
     }
+
     async onTixing_wait(mess, type = '') {
         const alert = await this.alertController.create( {
             backdropDismiss: false,
@@ -657,13 +658,14 @@ export class RenwuZuorenwuPage implements OnInit {
     }
   }
   photo_submit() {
-    if ( JSON.stringify(this.gongcheng_uploadFileArr) == '[]' || this.lingqu_class == 'lingqu_no' ) {
+    if ((JSON.stringify(this.gongcheng_uploadFileArr) === '[]' || this.lingqu_class === 'lingqu_no') && this.waiting !== 1 ) {
       this.onTixing_noimg('没有上传图片');
       return;
-    } else if (this.waiting == 1 ) {
-        this.onTixing_wait('任务正在提交，请稍等..');
+    } else if (this.waiting === 1 ) {
+        // this.onTixing_wait('任务正在提交，请稍等..');
+        this.presentToast('任务正在提交，请稍等..');
         return;
-    } else if (this.waiting != 1) {
+    } else if (this.waiting !== 1) {
         this.submit_controler();
     }
 

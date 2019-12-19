@@ -99,7 +99,7 @@
     </ul>
 
     <!-- <ul class="lingqu_no">提交</ul>  -->
-    <ul class="lingqu" (click)='photo_submit()'>提交</ul>
+    <button type="button" class="lingqu" (click)="photo_submit()"  [disabled]="doubleHit">提交</button>
       <!--<ul [ngClass]="lingqu_class" (click)="photo_submit()" >提交</ul>-->
   </div>
 </ion-content>

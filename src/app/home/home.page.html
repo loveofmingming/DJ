@@ -39,7 +39,7 @@
                 </li>
                 <li class="huoqu">
                     <samp>
-                        <button ion-button full  (click)="getYanzheng()" [disabled]="!mobileCode.disable"  >{{mobileCode.name}}</button>
+                        <button type="button" (click)="getYanzheng()" [disabled]="doubleHitPress" >{{mobileCode.name}}</button>
                         <!--<button ion-button full  (click)="getYanzheng()" [disabled]="!mobileCode.disable"  > {{computeTime>0 ? `已发送(${computeTime}s)` : '获取验证码'}}</button>-->
                     </samp>
                 </li>
@@ -81,4 +81,3 @@
 <!--  </div>-->
 
 </ion-content>
-  
