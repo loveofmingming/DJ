@@ -85,7 +85,7 @@ export class IndexPage extends OnEnterPage {
                    }
                });
            }
-        }, 2000);
+        }, 1000);
         }
 
     async ngOnInit() {

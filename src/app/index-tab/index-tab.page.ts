@@ -71,7 +71,7 @@ export class IndexTabPage extends OnEnterPage {
         console.log('index-tab onEnter');
     }
      // 第一次进来页面和重新加载的数据
-    async reload_page() {
+    async  reload_page() {
         // console.log(this.init,'tab this.init');
         // await super.showLoading(this.loadingCtrl, ' 加载中...');
         await this.loginmodel.LoginSessionT().then(res => {
@@ -207,7 +207,8 @@ export class IndexTabPage extends OnEnterPage {
     ionViewDidEnter() {
         if ( !this.init ) {
             this.reload_page();
-            this.get_wode_renwu();
+            // this.get_wode_renwu();
+            console.log('abc');
         }
     }
     totalNum() {
@@ -279,7 +280,7 @@ export class IndexTabPage extends OnEnterPage {
             }
         }
     );
-      modal.onDidDismiss().then( res => {
+    modal.onDidDismiss().then( res => {
           this.reload_page();
           this.get_wode_renwu();
 

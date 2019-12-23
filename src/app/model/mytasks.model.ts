@@ -13,6 +13,7 @@ export class MyTasksModel {
     getAllOfMyTasks() {
         // return this.tools.postUrl('/tasks/MyTasks/getAllOfMyTasks', {});
         return this.tools.postUrlTongbu('/tasks/MyTasks/getAllOfMyTasks', {});
+
     }
     getInfoMyTaskById(con) {
         return this.tools.postUrl('/tasks/MyTasks/getInfoMyTaskNeedById', con);

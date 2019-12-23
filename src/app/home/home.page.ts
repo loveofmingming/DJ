@@ -475,7 +475,7 @@ export class HomePage extends OnEnterPage{
     back() {
         this.modalCtrl.dismiss();
     }
-    async open_xiaoxi() {
+    async open_privacy() {
         const modal = await this.modalCtrl.create({component: PrivacyPage });
         modal.onDidDismiss().then( res => {
             this.router.onSameUrlNavigation = 'reload';

@@ -20,6 +20,7 @@ export class RenwuGuoqiPage implements OnInit {
     big_img_i: number;
     big_img_count: number;
     wode_renwu_count: any;
+    init:boolean;
   constructor(
 
       public alertcontroller:AlertController,
@@ -36,27 +37,28 @@ export class RenwuGuoqiPage implements OnInit {
       this.img_url = ConfigModel.BASE_IMG_URL;
       // this.mtid = this.route.snapshot.paramMap.get('id');
       // this.tid = this.route.snapshot.paramMap.get('tid');
-
       this.mtid = this.navParams.get('id');
       this.tid = this.navParams.get('tid');
-
       this.tasksListCon = [];
-
       this.showBigImageState = false;
+      this.init = true;
   }
 
   ngOnInit() {
       this.loginmodel.LoginSession().subscribe(res => {
           let login_info:any = this.toolsmodel.decodeUrlList(res);
-          if(login_info.error != '0'){
+          if (login_info.error != '0') {
               this.router.navigateByUrl('/home');
               return;
-          }else{
-              this.getTasksCon(this.mtid,this.tid)
+          } else {
+              this.getTasksCon(this.mtid, this.tid);
           }
       }); // 登陆验证
   }
-
+    // 离开页面的时候触发
+    ionViewDidLeave() {
+        this.init = false;
+    }
     getTasksCon(mtid,tid){
         let con = {
             mtid: mtid,

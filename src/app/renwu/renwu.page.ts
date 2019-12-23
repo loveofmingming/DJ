@@ -181,6 +181,7 @@ export class RenwuPage {
     }
     get_city_gps(type:any) {   // 登录信息里的gps_time 已经在登录时的时间上加了半小时
         this.get_wode_renwu();
+        // console.log('123');
         // this.get_city_gp_c();
         // let today_time = this.toolsmodel.getTodayTime();
         // console.log(today_time, 'today_timetoday_timetoday_timetoday_time');
@@ -237,8 +238,7 @@ export class RenwuPage {
         this.gps_x = resp.coords.latitude;
         this.gps_y = resp.coords.longitude;
         this.get_address_bybaidumap(resp.coords.latitude + 0.006000, resp.coords.longitude + 0.010000, this );
-        this.updatesessioninfo();
-
+        // this.updatesessioninfo();
         }).then(() => {
             // alert('2then');
             this.updatesessioninfo();

@@ -75,6 +75,7 @@ export class ToolsModel {
     // }
   async postUrlTongbu( post_url: any, data: any)
   {
+      console.log('def');
       this.headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded'});
       let pramasJs = JSON.stringify(data);
       this.options = new RequestOptions({ headers: this.headers, withCredentials: true});

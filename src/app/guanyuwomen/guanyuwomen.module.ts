@@ -7,6 +7,10 @@ import { IonicModule } from '@ionic/angular';
 
 import { GuanyuwomenPage } from './guanyuwomen.page';
 
+import {PrivacyPageModule} from '../privacy/privacy.module';
+import {PermissionPageModule} from '../permission/permission.module';
+
+import {HomePage} from '../home/home.page';
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +20,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    PermissionPageModule,
+    PrivacyPageModule,
     CommonModule,
     FormsModule,
     IonicModule,
