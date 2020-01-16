@@ -113,7 +113,7 @@
           <li name="titles" id="object" *ngIf="item.is_gps==1"><samp>{{tasksListCon.mytask?.address}}</samp></li>
           <li name="imgs" *ngIf="item.is_gps!=1">
               <samp *ngFor="let item_v of item.img_name; index as ti;">
-                  <img [src] = "img_url+'/'+item_v.img_name" (click)="showBigImages(i,ti,0)">
+                  <img [src] = "img_url+'/'+item_v.img_name" (click)="showBigImages(i, ti,0)">
               </samp>
 
           </li> 

@@ -62,7 +62,7 @@ export class RenwuWanchengPage implements OnInit {
       let ress:any = this.toolsmodel.decodeUrlList(res);
       if (ress.error == '0') {
           this.tasksListCon = ress.body;
-          console.log(this.tasksListCon,'this.tasksListConthis.tasksListConthis.tasksListCon123');
+          console.log(this.tasksListCon, 'this.tasksListConthis.tasksListConthis.tasksListCon123');
       } else {
         this.router.navigate(['/index-tab']);
       }

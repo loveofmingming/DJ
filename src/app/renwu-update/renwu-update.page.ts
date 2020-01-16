@@ -495,7 +495,7 @@ export class RenwuUpdatePage implements OnInit {
       // yangliImgOne(i){
       //   this.big_img_ti = 0;
       //   this.big_img_count=1;
-      //   this.big_img = ConfigModel.BASE_IMG_URL+'/'+this.taskInfo.mytask.my_tt_list[i].tiimg_list.img_name;
+      //   this.big_img = ConfigModel.BASE_IMG_URL+'/'+this.taskInfo.mytask.my_tt_list[i].tiimg_list.img_name_https;
       //   this.yangliImg = true;
       //   this.showBigImageState=true;
       // }
@@ -504,9 +504,9 @@ export class RenwuUpdatePage implements OnInit {
         // this.big_img_count = 1;
         // 若是想要样例只显示第一张不轮播，则注释掉下面两行开启上面一行，换掉seipeEvnet函数
         this.big_img_i = i;
-        this.big_img_count = this.taskInfo.mytask.my_tt_list[i].tiimg_list.img_name.length;
-        this.big_img = this.taskInfo.mytask.my_tt_list[i].tiimg_list.img_name[0];
-          // this.big_img = ConfigModel.BASE_IMG_URL + '/' + this.taskInfo.mytask.my_tt_list[i].tiimg_list.img_name;
+        this.big_img_count = this.taskInfo.mytask.my_tt_list[i].tiimg_list.img_name_https.length;
+        this.big_img = this.taskInfo.mytask.my_tt_list[i].tiimg_list.img_name_https[0];
+          // this.big_img = ConfigModel.BASE_IMG_URL + '/' + this.taskInfo.mytask.my_tt_list[i].tiimg_list.img_name_https;
         this.yangliImg = true;
         this.showBigImageState = true;
     }
@@ -516,18 +516,18 @@ export class RenwuUpdatePage implements OnInit {
         if (event.direction == 2) {
             // console.log('进入左滑动');
             let big_img_ti = this.big_img_ti+1;
-            if(this.taskInfo.mytask.my_tt_list[this.big_img_i].tiimg_list.img_name[big_img_ti] ){
+            if(this.taskInfo.mytask.my_tt_list[this.big_img_i].tiimg_list.img_name_https[big_img_ti] ){
                 this.big_img_ti = big_img_ti;
-                this.big_img = this.taskInfo.mytask.my_tt_list[this.big_img_i].tiimg_list.img_name[this.big_img_ti];
+                this.big_img = this.taskInfo.mytask.my_tt_list[this.big_img_i].tiimg_list.img_name_https[this.big_img_ti];
             }
         }
         //向右滑
         if (event.direction == 4) {
             // console.log('进入左滑动');
             let big_img_ti = this.big_img_ti-1;
-            if(this.taskInfo.mytask.my_tt_list[this.big_img_i].tiimg_list.img_name[big_img_ti]){
+            if(this.taskInfo.mytask.my_tt_list[this.big_img_i].tiimg_list.img_name_https[big_img_ti]){
                 this.big_img_ti = big_img_ti;
-                this.big_img = this.taskInfo.mytask.my_tt_list[this.big_img_i].tiimg_list.img_name[this.big_img_ti];
+                this.big_img = this.taskInfo.mytask.my_tt_list[this.big_img_i].tiimg_list.img_name_https[this.big_img_ti];
             }
         }
     }

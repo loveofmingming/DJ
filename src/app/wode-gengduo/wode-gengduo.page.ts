@@ -271,8 +271,7 @@ export class WodeGengduoPage implements OnInit {
                     text: '拍照上传',
                     icon: 'share',
                     handler: () => {
-
-                        let res_info = this.camera.camera_touxiang_play_from_camera();
+                        // let res_info = this.camera.camera_touxiang_play_from_camera();
                         // // let options = this.came_options;
                         // // this.camera.getPicture(options).then((imageData) => {
                         // //   this.setImgTypeUrl(type,index,imageData);
@@ -281,32 +280,31 @@ export class WodeGengduoPage implements OnInit {
                         // // });          console.log('拍照上传');
                         // let ress = this.toolsmodel.decodeUrlList(res_info);
                         // console.log(ress);
-
-                        this.camera.getPicModel(100, 0, 0, 0, true, 1, 120, 120).then((imageData) => {
-                            this.userTouxiang = "data:image/jpeg;base64," + imageData;
+                        this.camera.getPicModel(100, 0, 0, 0, true, 1, 1024, 1024).then((imageData) => {
+                            this.userTouxiang = 'data:image/jpeg;base64,' + imageData;
                             if (imageData) {
-                                this.userTouxiang1 = "data:image/jpeg;base64," + imageData;
+                                this.userTouxiang1 = 'data:image/jpeg;base64,' + imageData;
                             }
                             // alert('上传成功');
                             this.camera.doUploadTouXiang(imageData, 'touxiang_photo' );
-                        })
+                        });
                     }
                 }, {
                     text: '从相册选取上传',
                     icon: 'share',
                     handler: () => {
-                        //let res_info = this.camera.camera_touxiang_play_from_picture();
+                        // let res_info = this.camera.camera_touxiang_play_from_picture();
                         // this.camera.camera_touxiang_play_from_picture()
-                        this.camera.getPicModel(100, 0, 0, 0, false, 0, 120, 120).then((imageData) => {
-                            this.userTouxiang = "data:image/jpeg;base64," + imageData;
+                        this.camera.getPicModel(100, 0, 0, 0, false, 0, 1024, 1024).then((imageData) => {
+                            this.userTouxiang = 'data:image/jpeg;base64,' + imageData;
                             if (imageData) {
-                                this.userTouxiang1 = "data:image/jpeg;base64," + imageData;
+                                this.userTouxiang1 = 'data:image/jpeg;base64,' + imageData;
                             }
                             // alert('上传成功');
                             this.camera.doUploadTouXiang(this.userTouxiang, 'touxiang_photo' );
 
                             // this.router.navigateByUrl("default/renwu/mine");   //跳转
-                        })
+                        });
                     }
                 }, {
                     text: '取消',

@@ -104,7 +104,7 @@ export class RenwuTongguoPage implements OnInit {
       let ress:any = this.toolsmodel.decodeUrlList(res);
       if (ress.error == '0') {
           this.tasksListCon = ress.body;
-          // console.log(this.tasksListCon,'this.ssssssssssssssssssssssss');
+          console.log(this.tasksListCon,'this.ssssssssssssssssssssssss');
       } else {
         this.router.navigate(['/index-tab']);
       }
@@ -236,7 +236,7 @@ export class RenwuTongguoPage implements OnInit {
   // back1() {
   //   this.router.navigateByUrl("/default/renwu/mine");   //跳转
   // }
-    showBigImages(i, ti, ) {
+    showBigImages(i, ti, ni) {
         this.showBigImageState = true;
         this.big_img_count = this.tasksListCon.mytask.my_tt_list[i].img_name.length
         this.big_img = this.img_url + '/' + this.tasksListCon.mytask.my_tt_list[i].img_name[ti].img_name
