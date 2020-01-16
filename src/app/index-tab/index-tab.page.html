@@ -21,7 +21,7 @@
             <ng-template #haveBlock>
         <ul class="list_s" *ngFor="let doinglist of doingList; index as i;" (click)="open_renwu_jxz(doinglist.link,doinglist.id,doinglist.task_id)">
             <div class="renwu_con_imgs">
-                <img [src]="doinglist.top_img_name" alt="" src="">
+                <img [src]="doinglist.top_img_name_https" alt="" src="">
             </div>
             <div class="renwu_con_miaoshu">
                 <!-- <samp [routerLink]="[doinglist.link,doinglist.id,doinglist.task_id]">{{doinglist.name}}</samp><br>  -->
@@ -54,7 +54,7 @@
 
         <ul class="list_s" *ngFor="let item of finishList; index as i;" (click)="open_renwu_wc(item.link,item.id,item.task_id)" >
             <div class="renwu_con_imgs">
-                <img [src]="item.top_img_name">
+                <img [src]="item.top_img_name_https">
             </div>
             <div class="renwu_con_miaoshu" >
                 <!-- <samp [routerLink]="[item.link,item.id,item.task_id]">{{item.name}}</samp><br> -->

@@ -227,7 +227,7 @@ export class RenwuPage {
         // 39.962653,116.820007
         // 39.968381,116.832371
         // 38.8771368433,115.5760853416
-       // this.get_city_bd_t();
+       this.get_city_bd_t();
        // this.get_wode_renwu();
        //  this.gps_city = '正在定位...';
        //  this.get_address_bybaidumap(38.968353 + 0.006000, 115.83230 + 0.010000, this);
