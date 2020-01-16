@@ -216,7 +216,7 @@ export class RenwuConPage implements OnInit {
         this.showBigImageState = true;
     }
     showBigImages(i, ti) {
-        this.big_img_count = this.tasksListCon.tt_list[i].img_name.length;
+        this.big_img_count = this.tasksListCon.tt_list[i].img_name_https.length;
         // for (var t = 0; t < this.big_img_count - 1; t++) {
         //     console.log(t,'ttttttttttttttttttttttttttt');
         //       return t;
@@ -227,7 +227,7 @@ export class RenwuConPage implements OnInit {
         //     console.log(t);
         //     t++;
         // }
-        this.big_img = this.tasksListCon.tt_list[i].img_name[ti];
+        this.big_img = this.tasksListCon.tt_list[i].img_name_https[ti];
         this.big_img_i = i;
         this.big_img_ti = ti;
         // this.img_i = 0;
@@ -240,9 +240,9 @@ export class RenwuConPage implements OnInit {
         if (event.direction == 2) {
             // console.log('进入左滑动');
             var big_img_ti = this.big_img_ti + 1;
-            if (this.tasksListCon.tt_list[this.big_img_i].img_name[big_img_ti] ) {
+            if (this.tasksListCon.tt_list[this.big_img_i].img_name_https[big_img_ti] ) {
                 this.big_img_ti = big_img_ti;
-                this.big_img = this.tasksListCon.tt_list[this.big_img_i].img_name[this.big_img_ti];
+                this.big_img = this.tasksListCon.tt_list[this.big_img_i].img_name_https[this.big_img_ti];
             }
         }
 
@@ -250,10 +250,10 @@ export class RenwuConPage implements OnInit {
         if (event.direction == 4) {
             // console.log('进入右滑动');
             var big_img_ti = this.big_img_ti - 1;
-            // console.log(this.tasksListCon.tt_list[this.big_img_i].img_name[big_img_ti]);
-            if (this.tasksListCon.tt_list[this.big_img_i].img_name[big_img_ti]){
+            // console.log(this.tasksListCon.tt_list[this.big_img_i].img_name_https[big_img_ti]);
+            if (this.tasksListCon.tt_list[this.big_img_i].img_name_https[big_img_ti]){
                 this.big_img_ti = big_img_ti;
-                this.big_img = this.tasksListCon.tt_list[this.big_img_i].img_name[this.big_img_ti];
+                this.big_img = this.tasksListCon.tt_list[this.big_img_i].img_name_https[this.big_img_ti];
             }
         }
     }

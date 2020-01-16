@@ -282,11 +282,12 @@ export class WodeGengduoPage implements OnInit {
                         // console.log(ress);
                         this.camera.getPicModel(100, 0, 0, 0, true, 1, 1024, 1024).then((imageData) => {
                             this.userTouxiang = 'data:image/jpeg;base64,' + imageData;
-                            if (imageData) {
-                                this.userTouxiang1 = 'data:image/jpeg;base64,' + imageData;
-                            }
+                            this.userTouxiang1 = 'data:image/jpeg;base64,' + imageData;
+                            // if (imageData) {
+                            //     this.userTouxiang1 = 'data:image/jpeg;base64,' + imageData;
+                            // }
                             // alert('上传成功');
-                            this.camera.doUploadTouXiang(imageData, 'touxiang_photo' );
+                            this.camera.doUploadTouXiang(this.userTouxiang, 'touxiang_photo' );
                         });
                     }
                 }, {
@@ -297,9 +298,10 @@ export class WodeGengduoPage implements OnInit {
                         // this.camera.camera_touxiang_play_from_picture()
                         this.camera.getPicModel(100, 0, 0, 0, false, 0, 1024, 1024).then((imageData) => {
                             this.userTouxiang = 'data:image/jpeg;base64,' + imageData;
-                            if (imageData) {
-                                this.userTouxiang1 = 'data:image/jpeg;base64,' + imageData;
-                            }
+                            this.userTouxiang1 = 'data:image/jpeg;base64,' + imageData;
+                            // if (imageData) {
+                            //     this.userTouxiang1 = 'data:image/jpeg;base64,' + imageData;
+                            // }
                             // alert('上传成功');
                             this.camera.doUploadTouXiang(this.userTouxiang, 'touxiang_photo' );
 

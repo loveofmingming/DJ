@@ -183,7 +183,7 @@ export class RenwuUpdatePage implements OnInit {
               text: '拍照上传',
               icon: 'share',
               handler: () => {
-                this.cameraM.getPicModel(100, 0, 0, 0, true, 1, 120, 120).then((imageData) => {
+                this.cameraM.getPicModel(100, 0, 0, 0, true, 1, 1024, 1024).then((imageData) => {
                     this.setImgTypeUrl(i, ti, imageData);
                 }, (err) => {
                     // Handle error
@@ -193,7 +193,7 @@ export class RenwuUpdatePage implements OnInit {
               text: '从相册选取上传',
               icon: 'share',
               handler: () => {
-                  this.cameraM.getPicModel(100, 0, 0, 0, false, 0, 120, 120).then((imageData) => {
+                  this.cameraM.getPicModel(100, 0, 0, 0, false, 0, 1024, 1024).then((imageData) => {
                       this.setImgTypeUrl(i, ti, imageData);
                   }, (err) => {
                       // Handle error
