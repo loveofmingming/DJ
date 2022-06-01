@@ -66,7 +66,7 @@
         "jpush-phonegap-plugin": "^3.7.2",
         "rxjs": "^6.5.3",
         "rxjs-compat": "^6.5.3",
-        "sharp": "^0.23.2",
+        "sharp": "^0.30.5",
         "ts-md5": "^1.2.6",
         "tslib": "^1.10.0",
         "zone.js": "~0.9.1"
